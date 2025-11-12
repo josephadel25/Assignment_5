@@ -1,0 +1,29 @@
+name: Auto Unzip Repo
+
+on:
+  push:
+    paths:
+      - '*.zip'   # Runs only when a zip file is pushed
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unzip all zip files
+        run: |
+          mkdir -p extracted
+          for file in *.zip; do
+            unzip -o "$file" -d extracted/
+          done
+
+      - name: Commit and push extracted files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add extracted/
+          git commit -m "Unzipped files automatically" || echo "No changes to commit"
+          git push
