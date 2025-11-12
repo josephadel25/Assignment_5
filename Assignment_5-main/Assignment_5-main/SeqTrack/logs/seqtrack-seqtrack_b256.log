@@ -1,0 +1,2770 @@
+python lib/train/run_training.py --script seqtrack --config seqtrack_b256 --save_dir . --use_lmdb 0 --seed 3 --phase phase_1 --repo_id ayamohamed2500/seqtrack-checkpoints
+local_rank: -1
+Training on GPU: NVIDIA GeForce RTX 3050 Laptop GPU
+SEED: 3 (our TEAM Number)
+script_name: seqtrack.py  config_name: seqtrack_b256.yaml
+New configuration is shown below.
+MODEL configuration: {'HIDDEN_DIM': 256, 'BINS': 4000, 'FEATURE_TYPE': 'x', 'ENCODER': {'TYPE': 'vit_base_patch16', 'DROP_PATH': 0, 'PRETRAIN_TYPE': 'mae', 'STRIDE': 16, 'USE_CHECKPOINT': False}, 'DECODER': {'NHEADS': 8, 'DROPOUT': 0.1, 'DIM_FEEDFORWARD': 1024, 'DEC_LAYERS': 2, 'PRE_NORM': False}}
+
+
+TRAIN configuration: {'LR': 0.0001, 'WEIGHT_DECAY': 0.0001, 'EPOCH': 10, 'LR_DROP_EPOCH': 400, 'BATCH_SIZE': 16, 'NUM_WORKER': 6, 'OPTIMIZER': 'ADAMW', 'ENCODER_MULTIPLIER': 0.1, 'FREEZE_ENCODER': False, 'ENCODER_OPEN': [], 'CE_WEIGHT': 1.0, 'PRINT_INTERVAL': 50, 'GRAD_CLIP_NORM': 0.1, 'SCHEDULER': {'TYPE': 'step', 'DECAY_RATE': 0.1}}
+
+
+DATA configuration: {'MEAN': [0.485, 0.456, 0.406], 'STD': [0.229, 0.224, 0.225], 'MAX_SAMPLE_INTERVAL': 400, 'SAMPLER_MODE': 'order', 'LOADER': 'tracking', 'SEQ_FORMAT': 'xywh', 'TRAIN': {'DATASETS_NAME': ['LASOT'], 'DATASETS_RATIO': [1], 'SAMPLE_PER_EPOCH': 1000}, 'SEARCH': {'NUMBER': 1, 'SIZE': 192, 'FACTOR': 3.0, 'CENTER_JITTER': 3.5, 'SCALE_JITTER': 0.5}, 'TEMPLATE': {'NUMBER': 2, 'SIZE': 192, 'FACTOR': 3.0, 'CENTER_JITTER': 0, 'SCALE_JITTER': 0}}
+
+
+TEST configuration: {'TEMPLATE_FACTOR': 4.0, 'TEMPLATE_SIZE': 256, 'SEARCH_FACTOR': 4.0, 'SEARCH_SIZE': 256, 'EPOCH': 500, 'WINDOW': True, 'NUM_TEMPLATES': 2, 'UPDATE_INTERVALS': {'DEFAULT': 9999, 'LASOT': 450, 'LASOT_EXTENSION_SUBSET': 9999, 'GOT10K_TEST': 1, 'TRACKINGNET': 25, 'TNL2K': 25, 'OTB': 9999, 'NFS': 9999, 'UAV': 9999, 'VOT20': 1, 'VOT21': 1, 'VOT22': 1}, 'UPDATE_THRESHOLD': {'DEFAULT': 0.6, 'VOT20': 0.55, 'VOT21': 0.55, 'VOT22': 0.55}}
+
+
+sampler_mode order
+Original number of sequences: 1120
+Number of sequences after filtering for ['book', 'coin']: 32
+Learnable parameters are shown below.
+pos_embed
+encoder.body.pos_embed
+encoder.body.patch_embed.proj.weight
+encoder.body.patch_embed.proj.bias
+encoder.body.blocks.0.norm1.weight
+encoder.body.blocks.0.norm1.bias
+encoder.body.blocks.0.attn.qkv.weight
+encoder.body.blocks.0.attn.qkv.bias
+encoder.body.blocks.0.attn.proj.weight
+encoder.body.blocks.0.attn.proj.bias
+encoder.body.blocks.0.norm2.weight
+encoder.body.blocks.0.norm2.bias
+encoder.body.blocks.0.mlp.fc1.weight
+encoder.body.blocks.0.mlp.fc1.bias
+encoder.body.blocks.0.mlp.fc2.weight
+encoder.body.blocks.0.mlp.fc2.bias
+encoder.body.blocks.1.norm1.weight
+encoder.body.blocks.1.norm1.bias
+encoder.body.blocks.1.attn.qkv.weight
+encoder.body.blocks.1.attn.qkv.bias
+encoder.body.blocks.1.attn.proj.weight
+encoder.body.blocks.1.attn.proj.bias
+encoder.body.blocks.1.norm2.weight
+encoder.body.blocks.1.norm2.bias
+encoder.body.blocks.1.mlp.fc1.weight
+encoder.body.blocks.1.mlp.fc1.bias
+encoder.body.blocks.1.mlp.fc2.weight
+encoder.body.blocks.1.mlp.fc2.bias
+encoder.body.blocks.2.norm1.weight
+encoder.body.blocks.2.norm1.bias
+encoder.body.blocks.2.attn.qkv.weight
+encoder.body.blocks.2.attn.qkv.bias
+encoder.body.blocks.2.attn.proj.weight
+encoder.body.blocks.2.attn.proj.bias
+encoder.body.blocks.2.norm2.weight
+encoder.body.blocks.2.norm2.bias
+encoder.body.blocks.2.mlp.fc1.weight
+encoder.body.blocks.2.mlp.fc1.bias
+encoder.body.blocks.2.mlp.fc2.weight
+encoder.body.blocks.2.mlp.fc2.bias
+encoder.body.blocks.3.norm1.weight
+encoder.body.blocks.3.norm1.bias
+encoder.body.blocks.3.attn.qkv.weight
+encoder.body.blocks.3.attn.qkv.bias
+encoder.body.blocks.3.attn.proj.weight
+encoder.body.blocks.3.attn.proj.bias
+encoder.body.blocks.3.norm2.weight
+encoder.body.blocks.3.norm2.bias
+encoder.body.blocks.3.mlp.fc1.weight
+encoder.body.blocks.3.mlp.fc1.bias
+encoder.body.blocks.3.mlp.fc2.weight
+encoder.body.blocks.3.mlp.fc2.bias
+encoder.body.blocks.4.norm1.weight
+encoder.body.blocks.4.norm1.bias
+encoder.body.blocks.4.attn.qkv.weight
+encoder.body.blocks.4.attn.qkv.bias
+encoder.body.blocks.4.attn.proj.weight
+encoder.body.blocks.4.attn.proj.bias
+encoder.body.blocks.4.norm2.weight
+encoder.body.blocks.4.norm2.bias
+encoder.body.blocks.4.mlp.fc1.weight
+encoder.body.blocks.4.mlp.fc1.bias
+encoder.body.blocks.4.mlp.fc2.weight
+encoder.body.blocks.4.mlp.fc2.bias
+encoder.body.blocks.5.norm1.weight
+encoder.body.blocks.5.norm1.bias
+encoder.body.blocks.5.attn.qkv.weight
+encoder.body.blocks.5.attn.qkv.bias
+encoder.body.blocks.5.attn.proj.weight
+encoder.body.blocks.5.attn.proj.bias
+encoder.body.blocks.5.norm2.weight
+encoder.body.blocks.5.norm2.bias
+encoder.body.blocks.5.mlp.fc1.weight
+encoder.body.blocks.5.mlp.fc1.bias
+encoder.body.blocks.5.mlp.fc2.weight
+encoder.body.blocks.5.mlp.fc2.bias
+encoder.body.blocks.6.norm1.weight
+encoder.body.blocks.6.norm1.bias
+encoder.body.blocks.6.attn.qkv.weight
+encoder.body.blocks.6.attn.qkv.bias
+encoder.body.blocks.6.attn.proj.weight
+encoder.body.blocks.6.attn.proj.bias
+encoder.body.blocks.6.norm2.weight
+encoder.body.blocks.6.norm2.bias
+encoder.body.blocks.6.mlp.fc1.weight
+encoder.body.blocks.6.mlp.fc1.bias
+encoder.body.blocks.6.mlp.fc2.weight
+encoder.body.blocks.6.mlp.fc2.bias
+encoder.body.blocks.7.norm1.weight
+encoder.body.blocks.7.norm1.bias
+encoder.body.blocks.7.attn.qkv.weight
+encoder.body.blocks.7.attn.qkv.bias
+encoder.body.blocks.7.attn.proj.weight
+encoder.body.blocks.7.attn.proj.bias
+encoder.body.blocks.7.norm2.weight
+encoder.body.blocks.7.norm2.bias
+encoder.body.blocks.7.mlp.fc1.weight
+encoder.body.blocks.7.mlp.fc1.bias
+encoder.body.blocks.7.mlp.fc2.weight
+encoder.body.blocks.7.mlp.fc2.bias
+encoder.body.blocks.8.norm1.weight
+encoder.body.blocks.8.norm1.bias
+encoder.body.blocks.8.attn.qkv.weight
+encoder.body.blocks.8.attn.qkv.bias
+encoder.body.blocks.8.attn.proj.weight
+encoder.body.blocks.8.attn.proj.bias
+encoder.body.blocks.8.norm2.weight
+encoder.body.blocks.8.norm2.bias
+encoder.body.blocks.8.mlp.fc1.weight
+encoder.body.blocks.8.mlp.fc1.bias
+encoder.body.blocks.8.mlp.fc2.weight
+encoder.body.blocks.8.mlp.fc2.bias
+encoder.body.blocks.9.norm1.weight
+encoder.body.blocks.9.norm1.bias
+encoder.body.blocks.9.attn.qkv.weight
+encoder.body.blocks.9.attn.qkv.bias
+encoder.body.blocks.9.attn.proj.weight
+encoder.body.blocks.9.attn.proj.bias
+encoder.body.blocks.9.norm2.weight
+encoder.body.blocks.9.norm2.bias
+encoder.body.blocks.9.mlp.fc1.weight
+encoder.body.blocks.9.mlp.fc1.bias
+encoder.body.blocks.9.mlp.fc2.weight
+encoder.body.blocks.9.mlp.fc2.bias
+encoder.body.blocks.10.norm1.weight
+encoder.body.blocks.10.norm1.bias
+encoder.body.blocks.10.attn.qkv.weight
+encoder.body.blocks.10.attn.qkv.bias
+encoder.body.blocks.10.attn.proj.weight
+encoder.body.blocks.10.attn.proj.bias
+encoder.body.blocks.10.norm2.weight
+encoder.body.blocks.10.norm2.bias
+encoder.body.blocks.10.mlp.fc1.weight
+encoder.body.blocks.10.mlp.fc1.bias
+encoder.body.blocks.10.mlp.fc2.weight
+encoder.body.blocks.10.mlp.fc2.bias
+encoder.body.blocks.11.norm1.weight
+encoder.body.blocks.11.norm1.bias
+encoder.body.blocks.11.attn.qkv.weight
+encoder.body.blocks.11.attn.qkv.bias
+encoder.body.blocks.11.attn.proj.weight
+encoder.body.blocks.11.attn.proj.bias
+encoder.body.blocks.11.norm2.weight
+encoder.body.blocks.11.norm2.bias
+encoder.body.blocks.11.mlp.fc1.weight
+encoder.body.blocks.11.mlp.fc1.bias
+encoder.body.blocks.11.mlp.fc2.weight
+encoder.body.blocks.11.mlp.fc2.bias
+encoder.body.norm.weight
+encoder.body.norm.bias
+bottleneck.weight
+bottleneck.bias
+decoder.embedding.word_embeddings.weight
+decoder.embedding.position_embeddings.weight
+decoder.embedding.LayerNorm.weight
+decoder.embedding.LayerNorm.bias
+decoder.body.layers.0.self_attn.in_proj_weight
+decoder.body.layers.0.self_attn.in_proj_bias
+decoder.body.layers.0.self_attn.out_proj.weight
+decoder.body.layers.0.self_attn.out_proj.bias
+decoder.body.layers.0.multihead_attn.in_proj_weight
+decoder.body.layers.0.multihead_attn.in_proj_bias
+decoder.body.layers.0.multihead_attn.out_proj.weight
+decoder.body.layers.0.multihead_attn.out_proj.bias
+decoder.body.layers.0.linear1.weight
+decoder.body.layers.0.linear1.bias
+decoder.body.layers.0.linear2.weight
+decoder.body.layers.0.linear2.bias
+decoder.body.layers.0.norm1.weight
+decoder.body.layers.0.norm1.bias
+decoder.body.layers.0.norm2.weight
+decoder.body.layers.0.norm2.bias
+decoder.body.layers.0.norm3.weight
+decoder.body.layers.0.norm3.bias
+decoder.body.layers.1.self_attn.in_proj_weight
+decoder.body.layers.1.self_attn.in_proj_bias
+decoder.body.layers.1.self_attn.out_proj.weight
+decoder.body.layers.1.self_attn.out_proj.bias
+decoder.body.layers.1.multihead_attn.in_proj_weight
+decoder.body.layers.1.multihead_attn.in_proj_bias
+decoder.body.layers.1.multihead_attn.out_proj.weight
+decoder.body.layers.1.multihead_attn.out_proj.bias
+decoder.body.layers.1.linear1.weight
+decoder.body.layers.1.linear1.bias
+decoder.body.layers.1.linear2.weight
+decoder.body.layers.1.linear2.bias
+decoder.body.layers.1.norm1.weight
+decoder.body.layers.1.norm1.bias
+decoder.body.layers.1.norm2.weight
+decoder.body.layers.1.norm2.bias
+decoder.body.layers.1.norm3.weight
+decoder.body.layers.1.norm3.bias
+decoder.body.norm.weight
+decoder.body.norm.bias
+vocab_embed.layers.0.weight
+vocab_embed.layers.0.bias
+vocab_embed.layers.1.weight
+vocab_embed.layers.1.bias
+vocab_embed.layers.2.weight
+vocab_embed.layers.2.bias
+checkpoints will be saved to D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints
+[phase_1] Epoch 1: 64 / 992 samples,
+time for last 64 samples: 0:01:42 hours
+time since beginning 0:01:42 hours,
+time left to finish the epoch 0:24:33 hours
+Loss/total: 8.29497, IoU: 0.03065
+
+[phase_1] Epoch 1: 112 / 992 samples,
+time for last 48 samples: 0:01:07 hours
+time since beginning 0:02:49 hours,
+time left to finish the epoch 0:22:05 hours
+Loss/total: 8.29575, IoU: 0.03087
+
+[phase_1] Epoch 1: 160 / 992 samples,
+time for last 48 samples: 0:01:11 hours
+time since beginning 0:04:00 hours,
+time left to finish the epoch 0:20:47 hours
+Loss/total: 8.29783, IoU: 0.03283
+
+[phase_1] Epoch 1: 208 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:05:16 hours,
+time left to finish the epoch 0:19:52 hours
+Loss/total: 8.29906, IoU: 0.02890
+
+[phase_1] Epoch 1: 256 / 992 samples,
+time for last 48 samples: 0:01:13 hours
+time since beginning 0:06:29 hours,
+time left to finish the epoch 0:18:38 hours
+Loss/total: 8.29928, IoU: 0.02820
+
+[phase_1] Epoch 1: 304 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:07:46 hours,
+time left to finish the epoch 0:17:34 hours
+Loss/total: 8.29997, IoU: 0.02799
+
+[phase_1] Epoch 1: 352 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:09:02 hours,
+time left to finish the epoch 0:16:25 hours
+Loss/total: 8.30004, IoU: 0.03041
+
+[phase_1] Epoch 1: 400 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:10:18 hours,
+time left to finish the epoch 0:15:14 hours
+Loss/total: 8.29896, IoU: 0.03247
+
+[phase_1] Epoch 1: 464 / 992 samples,
+time for last 64 samples: 0:01:41 hours
+time since beginning 0:11:59 hours,
+time left to finish the epoch 0:13:38 hours
+Loss/total: 8.29811, IoU: 0.03474
+
+[phase_1] Epoch 1: 512 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:13:17 hours,
+time left to finish the epoch 0:12:27 hours
+Loss/total: 8.29700, IoU: 0.03564
+
+[phase_1] Epoch 1: 560 / 992 samples,
+time for last 48 samples: 0:01:12 hours
+time since beginning 0:14:29 hours,
+time left to finish the epoch 0:11:10 hours
+Loss/total: 8.29559, IoU: 0.03763
+
+[phase_1] Epoch 1: 608 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:15:45 hours,
+time left to finish the epoch 0:09:57 hours
+Loss/total: 8.29509, IoU: 0.03825
+
+[phase_1] Epoch 1: 656 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:17:01 hours,
+time left to finish the epoch 0:08:43 hours
+Loss/total: 8.29521, IoU: 0.03962
+
+[phase_1] Epoch 1: 704 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:18:18 hours,
+time left to finish the epoch 0:07:29 hours
+Loss/total: 8.29419, IoU: 0.04035
+
+[phase_1] Epoch 1: 752 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:19:34 hours,
+time left to finish the epoch 0:06:15 hours
+Loss/total: 8.29400, IoU: 0.04363
+
+[phase_1] Epoch 1: 800 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:20:50 hours,
+time left to finish the epoch 0:05:00 hours
+Loss/total: 8.29320, IoU: 0.04606
+
+[phase_1] Epoch 1: 864 / 992 samples,
+time for last 64 samples: 0:01:41 hours
+time since beginning 0:22:31 hours,
+time left to finish the epoch 0:03:20 hours
+Loss/total: 8.29312, IoU: 0.04680
+
+[phase_1] Epoch 1: 912 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:23:48 hours,
+time left to finish the epoch 0:02:05 hours
+Loss/total: 8.29211, IoU: 0.04675
+
+[phase_1] Epoch 1: 960 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:25:05 hours,
+time left to finish the epoch 0:00:50 hours
+Loss/total: 8.29200, IoU: 0.04736
+
+[phase_1] Epoch 1: 992 / 992 samples,
+time for last 32 samples: 0:00:51 hours
+time since beginning 0:25:56 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.29168, IoU: 0.04789
+
+[phase_1] Loss collected: Epoch , Value: 8.2917, Total Loss history: 1 values
+[phase_1] IoU collected: Epoch 1, Value: 0.0479, Total IoU history: 1 values
+[phase_1]      IoU values range: 0.0479 to 0.0479
+[phase_1]      Current epoch: 1, Total epochs in history: 1
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.2917
+[phase_1]      Current epoch: , Total epochs in history: 1
+SEQTRACK_ep0001.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09G/1.09G [30:59<00:00, 584kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0001.pth.tar
+[phase_1] Epoch 2: 64 / 992 samples,
+time for last 64 samples: 0:02:06 hours
+time since beginning 0:02:06 hours,
+time left to finish the epoch 0:30:20 hours
+Loss/total: 8.29211, IoU: 0.05860
+
+[phase_1] Epoch 2: 112 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:03:24 hours,
+time left to finish the epoch 0:26:45 hours
+Loss/total: 8.28901, IoU: 0.05614
+
+[phase_1] Epoch 2: 160 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:04:43 hours,
+time left to finish the epoch 0:24:32 hours
+Loss/total: 8.28821, IoU: 0.05566
+
+[phase_1] Epoch 2: 208 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:06:02 hours,
+time left to finish the epoch 0:22:45 hours
+Loss/total: 8.28745, IoU: 0.05954
+
+[phase_1] Epoch 2: 256 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:07:21 hours,
+time left to finish the epoch 0:21:08 hours
+Loss/total: 8.28864, IoU: 0.06158
+
+[phase_1] Epoch 2: 304 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:08:40 hours,
+time left to finish the epoch 0:19:36 hours
+Loss/total: 8.28590, IoU: 0.05493
+
+[phase_1] Epoch 2: 352 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:09:59 hours,
+time left to finish the epoch 0:18:08 hours
+Loss/total: 8.28469, IoU: 0.05079
+
+[phase_1] Epoch 2: 400 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:11:18 hours,
+time left to finish the epoch 0:16:43 hours
+Loss/total: 8.28527, IoU: 0.05135
+
+[phase_1] Epoch 2: 464 / 992 samples,
+time for last 64 samples: 0:01:46 hours
+time since beginning 0:13:04 hours,
+time left to finish the epoch 0:14:52 hours
+Loss/total: 8.28345, IoU: 0.05062
+
+[phase_1] Epoch 2: 512 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:14:23 hours,
+time left to finish the epoch 0:13:29 hours
+Loss/total: 8.28220, IoU: 0.04925
+
+[phase_1] Epoch 2: 560 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:15:41 hours,
+time left to finish the epoch 0:12:06 hours
+Loss/total: 8.28072, IoU: 0.04870
+
+[phase_1] Epoch 2: 608 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:17:00 hours,
+time left to finish the epoch 0:10:44 hours
+Loss/total: 8.27983, IoU: 0.04777
+
+[phase_1] Epoch 2: 656 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:18:19 hours,
+time left to finish the epoch 0:09:23 hours
+Loss/total: 8.27764, IoU: 0.04640
+
+[phase_1] Epoch 2: 704 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:19:38 hours,
+time left to finish the epoch 0:08:02 hours
+Loss/total: 8.27803, IoU: 0.04530
+
+[phase_1] Epoch 2: 752 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:20:57 hours,
+time left to finish the epoch 0:06:41 hours
+Loss/total: 8.27707, IoU: 0.04475
+
+[phase_1] Epoch 2: 800 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:22:16 hours,
+time left to finish the epoch 0:05:21 hours
+Loss/total: 8.27684, IoU: 0.04346
+
+[phase_1] Epoch 2: 864 / 992 samples,
+time for last 64 samples: 0:01:44 hours
+time since beginning 0:24:00 hours,
+time left to finish the epoch 0:03:33 hours
+Loss/total: 8.27452, IoU: 0.04252
+
+[phase_1] Epoch 2: 912 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:25:19 hours,
+time left to finish the epoch 0:02:13 hours
+Loss/total: 8.27324, IoU: 0.04235
+
+[phase_1] Epoch 2: 960 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:26:36 hours,
+time left to finish the epoch 0:00:53 hours
+Loss/total: 8.27212, IoU: 0.04252
+
+[phase_1] Epoch 2: 992 / 992 samples,
+time for last 32 samples: 0:00:53 hours
+time since beginning 0:27:29 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.27264, IoU: 0.04311
+
+[phase_1] Loss collected: Epoch 2, Value: 8.2726, Total Loss history: 2 values
+[phase_1] IoU collected: Epoch 2, Value: 0.0431, Total IoU history: 2 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 2 epochs)
+[phase_1]      IoU values range: 0.0431 to 0.0479
+[phase_1]      Current epoch: 2, Total epochs in history: 2
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.2726
+[phase_1]      Current epoch: , Total epochs in history: 2
+SEQTRACK_ep0002.pth.tar:   0%|                                                                                                                                                                         | 0.00/1.09G [00:00<?, ?B/s]'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/f3e49c8b84bf9e9ea4d1c7d707dd3775b37208550e6754cefef6ff510ccb715e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T040432Z&X-Amz-Expires=86400&X-Amz-Signature=67f4b88cccb506d52988a5e54d93ef708ec1e152ca1ae696e156ca7153c49dd7&X-Amz-SignedHeaders=host&partNumber=1&uploadId=TstppxlB3IEbIm8lkenYWV6cEVOdMQmgmOuEf0R4gAVFmQeXYimp._Gn4H7Y.SQ1RqNzms5nT1jHUKjt2Aiz2fNb8YOMvFjdvnVfDOl03PB.8xZN.MRSzz00tlIbP327&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 9bb847c5-fa6e-4688-851d-8d0df8c8958b)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/f3e49c8b84bf9e9ea4d1c7d707dd3775b37208550e6754cefef6ff510ccb715e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T040432Z&X-Amz-Expires=86400&X-Amz-Signature=67f4b88cccb506d52988a5e54d93ef708ec1e152ca1ae696e156ca7153c49dd7&X-Amz-SignedHeaders=host&partNumber=1&uploadId=TstppxlB3IEbIm8lkenYWV6cEVOdMQmgmOuEf0R4gAVFmQeXYimp._Gn4H7Y.SQ1RqNzms5nT1jHUKjt2Aiz2fNb8YOMvFjdvnVfDOl03PB.8xZN.MRSzz00tlIbP327&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0002.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:01, 583kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0002.pth.tar
+[phase_1] Epoch 3: 64 / 992 samples,
+time for last 64 samples: 0:01:57 hours
+time since beginning 0:01:57 hours,
+time left to finish the epoch 0:28:22 hours
+Loss/total: 8.26930, IoU: 0.04887
+
+[phase_1] Epoch 3: 112 / 992 samples,
+time for last 48 samples: 0:01:20 hours
+time since beginning 0:03:17 hours,
+time left to finish the epoch 0:25:47 hours
+Loss/total: 8.27507, IoU: 0.05329
+
+[phase_1] Epoch 3: 160 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:04:35 hours,
+time left to finish the epoch 0:23:51 hours
+Loss/total: 8.27174, IoU: 0.04841
+
+[phase_1] Epoch 3: 208 / 992 samples,
+time for last 48 samples: 0:01:20 hours
+time since beginning 0:05:55 hours,
+time left to finish the epoch 0:22:17 hours
+Loss/total: 8.27139, IoU: 0.04688
+
+[phase_1] Epoch 3: 256 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:07:13 hours,
+time left to finish the epoch 0:20:46 hours
+Loss/total: 8.27055, IoU: 0.04795
+
+[phase_1] Epoch 3: 304 / 992 samples,
+time for last 48 samples: 0:01:20 hours
+time since beginning 0:08:33 hours,
+time left to finish the epoch 0:19:20 hours
+Loss/total: 8.26336, IoU: 0.04648
+
+[phase_1] Epoch 3: 352 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:09:51 hours,
+time left to finish the epoch 0:17:55 hours
+Loss/total: 8.26009, IoU: 0.04282
+
+[phase_1] Epoch 3: 400 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:11:10 hours,
+time left to finish the epoch 0:16:32 hours
+Loss/total: 8.25872, IoU: 0.04163
+
+[phase_1] Epoch 3: 464 / 992 samples,
+time for last 64 samples: 0:01:44 hours
+time since beginning 0:12:55 hours,
+time left to finish the epoch 0:14:41 hours
+Loss/total: 8.25784, IoU: 0.03932
+
+[phase_1] Epoch 3: 512 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:14:14 hours,
+time left to finish the epoch 0:13:20 hours
+Loss/total: 8.25697, IoU: 0.03798
+
+[phase_1] Epoch 3: 560 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:15:33 hours,
+time left to finish the epoch 0:11:59 hours
+Loss/total: 8.25457, IoU: 0.03879
+
+[phase_1] Epoch 3: 608 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:16:52 hours,
+time left to finish the epoch 0:10:39 hours
+Loss/total: 8.25401, IoU: 0.03758
+
+[phase_1] Epoch 3: 656 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:18:10 hours,
+time left to finish the epoch 0:09:19 hours
+Loss/total: 8.25392, IoU: 0.03670
+
+[phase_1] Epoch 3: 704 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:19:29 hours,
+time left to finish the epoch 0:07:58 hours
+Loss/total: 8.25217, IoU: 0.03503
+
+[phase_1] Epoch 3: 752 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:20:48 hours,
+time left to finish the epoch 0:06:38 hours
+Loss/total: 8.24894, IoU: 0.03405
+
+[phase_1] Epoch 3: 800 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:22:07 hours,
+time left to finish the epoch 0:05:18 hours
+Loss/total: 8.24915, IoU: 0.03272
+
+[phase_1] Epoch 3: 864 / 992 samples,
+time for last 64 samples: 0:01:46 hours
+time since beginning 0:23:53 hours,
+time left to finish the epoch 0:03:32 hours
+Loss/total: 8.24682, IoU: 0.03380
+
+[phase_1] Epoch 3: 912 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:25:12 hours,
+time left to finish the epoch 0:02:13 hours
+Loss/total: 8.24635, IoU: 0.03385
+
+[phase_1] Epoch 3: 960 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:26:30 hours,
+time left to finish the epoch 0:00:53 hours
+Loss/total: 8.24689, IoU: 0.03346
+
+[phase_1] Epoch 3: 992 / 992 samples,
+time for last 32 samples: 0:00:51 hours
+time since beginning 0:27:21 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.24661, IoU: 0.03361
+
+[phase_1] Loss collected: Epoch 3, Value: 8.2466, Total Loss history: 3 values
+[phase_1] IoU collected: Epoch 3, Value: 0.0336, Total IoU history: 3 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 3 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0479
+[phase_1]      Current epoch: 3, Total epochs in history: 3
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.2466
+[phase_1]      Current epoch: , Total epochs in history: 3
+SEQTRACK_ep0003.pth.tar:   0%|                                                                                                                                                                         | 0.00/1.09G [00:00<?, ?B/s]'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=9cb4b9f69809e15b3d1e9d8823a5491b166b904e76d966fffa109399bccc5d07&X-Amz-SignedHeaders=host&partNumber=1&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 6dbabd88-dbe2-4543-b276-fbfdfdafc3df)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=9cb4b9f69809e15b3d1e9d8823a5491b166b904e76d966fffa109399bccc5d07&X-Amz-SignedHeaders=host&partNumber=1&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0003.pth.tar:  28%|█████████████████████████████████████████████▎                                                                                                                    | 303M/1.09G [09:24<21:09, 616kB/s]'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: e3303de6-b15a-4163-8fa4-d33bcddcf443)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: a19947e8-0fde-4b79-90f1-18000cbea84c)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 2s [Retry 2/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: 6d4c2a0e-f101-416e-a3fe-09e7013103de)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 4s [Retry 3/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: 1f18108d-6bb1-46ae-829b-3844ed559019)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 8s [Retry 4/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: 59cee6a9-5749-465d-b04e-f98db6545b94)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 8s [Retry 5/5].
+SEQTRACK_ep0003.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:53, 567kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0003.pth.tar
+[phase_1] Epoch 4: 64 / 992 samples,
+time for last 64 samples: 0:01:54 hours
+time since beginning 0:01:54 hours,
+time left to finish the epoch 0:27:26 hours
+Loss/total: 8.22909, IoU: 0.01624
+
+[phase_1] Epoch 4: 112 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:03:09 hours,
+time left to finish the epoch 0:24:49 hours
+Loss/total: 8.22178, IoU: 0.02199
+
+[phase_1] Epoch 4: 160 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:04:25 hours,
+time left to finish the epoch 0:22:58 hours
+Loss/total: 8.22452, IoU: 0.02355
+
+[phase_1] Epoch 4: 208 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:05:41 hours,
+time left to finish the epoch 0:21:25 hours
+Loss/total: 8.21683, IoU: 0.02981
+
+[phase_1] Epoch 4: 256 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:06:57 hours,
+time left to finish the epoch 0:19:58 hours
+Loss/total: 8.21714, IoU: 0.02989
+
+[phase_1] Epoch 4: 304 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:08:13 hours,
+time left to finish the epoch 0:18:35 hours
+Loss/total: 8.21346, IoU: 0.03020
+
+[phase_1] Epoch 4: 352 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:09:28 hours,
+time left to finish the epoch 0:17:13 hours
+Loss/total: 8.21627, IoU: 0.03103
+
+[phase_1] Epoch 4: 400 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:10:44 hours,
+time left to finish the epoch 0:15:53 hours
+Loss/total: 8.21675, IoU: 0.03186
+
+[phase_1] Epoch 4: 464 / 992 samples,
+time for last 64 samples: 0:01:41 hours
+time since beginning 0:12:25 hours,
+time left to finish the epoch 0:14:07 hours
+Loss/total: 8.21405, IoU: 0.03327
+
+[phase_1] Epoch 4: 512 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:13:40 hours,
+time left to finish the epoch 0:12:49 hours
+Loss/total: 8.21609, IoU: 0.03344
+
+[phase_1] Epoch 4: 560 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:14:56 hours,
+time left to finish the epoch 0:11:31 hours
+Loss/total: 8.21442, IoU: 0.03322
+
+[phase_1] Epoch 4: 608 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:16:12 hours,
+time left to finish the epoch 0:10:14 hours
+Loss/total: 8.21553, IoU: 0.03210
+
+[phase_1] Epoch 4: 656 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:17:28 hours,
+time left to finish the epoch 0:08:57 hours
+Loss/total: 8.21588, IoU: 0.03175
+
+[phase_1] Epoch 4: 704 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:18:43 hours,
+time left to finish the epoch 0:07:39 hours
+Loss/total: 8.21499, IoU: 0.03422
+
+[phase_1] Epoch 4: 752 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:19:59 hours,
+time left to finish the epoch 0:06:23 hours
+Loss/total: 8.21306, IoU: 0.03436
+
+[phase_1] Epoch 4: 800 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:21:14 hours,
+time left to finish the epoch 0:05:06 hours
+Loss/total: 8.21335, IoU: 0.03451
+
+[phase_1] Epoch 4: 864 / 992 samples,
+time for last 64 samples: 0:01:40 hours
+time since beginning 0:22:55 hours,
+time left to finish the epoch 0:03:24 hours
+Loss/total: 8.21171, IoU: 0.03518
+
+[phase_1] Epoch 4: 912 / 992 samples,
+time for last 48 samples: 0:01:16 hours
+time since beginning 0:24:10 hours,
+time left to finish the epoch 0:02:07 hours
+Loss/total: 8.21016, IoU: 0.03599
+
+[phase_1] Epoch 4: 960 / 992 samples,
+time for last 48 samples: 0:01:15 hours
+time since beginning 0:25:26 hours,
+time left to finish the epoch 0:00:51 hours
+Loss/total: 8.20839, IoU: 0.03603
+
+[phase_1] Epoch 4: 992 / 992 samples,
+time for last 32 samples: 0:00:51 hours
+time since beginning 0:26:16 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.20784, IoU: 0.03572
+
+[phase_1] Loss collected: Epoch 4, Value: 8.2078, Total Loss history: 4 values
+[phase_1] IoU collected: Epoch 4, Value: 0.0357, Total IoU history: 4 values
+Checkpoint saved locally at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0004.pth.tar
+[phase_1]      IoU values range: 0.0336 to 0.0479
+[phase_1]      Current epoch: 4, Total epochs in history: 4
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.2078
+[phase_1]      Current epoch: , Total epochs in history: 4
+SEQTRACK_ep0004.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09G/1.09G [30:31<00:00, 592kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0004.pth.tar
+[phase_1] Epoch 5: 64 / 992 samples,
+time for last 64 samples: 0:02:02 hours
+time since beginning 0:02:02 hours,
+time left to finish the epoch 0:29:27 hours
+Loss/total: 8.21644, IoU: 0.03674
+
+[phase_1] Epoch 5: 112 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:03:21 hours,
+time left to finish the epoch 0:26:18 hours
+Loss/total: 8.20220, IoU: 0.04600
+
+[phase_1] Epoch 5: 160 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:04:40 hours,
+time left to finish the epoch 0:24:15 hours
+Loss/total: 8.21225, IoU: 0.04239
+
+[phase_1] Epoch 5: 208 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:05:58 hours,
+time left to finish the epoch 0:22:31 hours
+Loss/total: 8.20824, IoU: 0.03909
+
+[phase_1] Epoch 5: 256 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:07:17 hours,
+time left to finish the epoch 0:20:57 hours
+Loss/total: 8.20030, IoU: 0.04140
+
+[phase_1] Epoch 5: 304 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:08:36 hours,
+time left to finish the epoch 0:19:28 hours
+Loss/total: 8.20822, IoU: 0.04067
+
+[phase_1] Epoch 5: 352 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:09:55 hours,
+time left to finish the epoch 0:18:02 hours
+Loss/total: 8.20167, IoU: 0.03818
+
+[phase_1] Epoch 5: 400 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:11:14 hours,
+time left to finish the epoch 0:16:38 hours
+Loss/total: 8.19709, IoU: 0.03690
+
+[phase_1] Epoch 5: 464 / 992 samples,
+time for last 64 samples: 0:01:46 hours
+time since beginning 0:13:00 hours,
+time left to finish the epoch 0:14:48 hours
+Loss/total: 8.19327, IoU: 0.03666
+
+[phase_1] Epoch 5: 512 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:14:19 hours,
+time left to finish the epoch 0:13:26 hours
+Loss/total: 8.19406, IoU: 0.03756
+
+[phase_1] Epoch 5: 560 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:15:38 hours,
+time left to finish the epoch 0:12:04 hours
+Loss/total: 8.19388, IoU: 0.03566
+
+[phase_1] Epoch 5: 608 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:16:58 hours,
+time left to finish the epoch 0:10:43 hours
+Loss/total: 8.19084, IoU: 0.03387
+
+[phase_1] Epoch 5: 656 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:18:17 hours,
+time left to finish the epoch 0:09:22 hours
+Loss/total: 8.19202, IoU: 0.03416
+
+[phase_1] Epoch 5: 704 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:19:36 hours,
+time left to finish the epoch 0:08:01 hours
+Loss/total: 8.18919, IoU: 0.03356
+
+[phase_1] Epoch 5: 752 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:20:55 hours,
+time left to finish the epoch 0:06:40 hours
+Loss/total: 8.18549, IoU: 0.03406
+
+[phase_1] Epoch 5: 800 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:22:13 hours,
+time left to finish the epoch 0:05:20 hours
+Loss/total: 8.18278, IoU: 0.03377
+
+[phase_1] Epoch 5: 864 / 992 samples,
+time for last 64 samples: 0:01:44 hours
+time since beginning 0:23:57 hours,
+time left to finish the epoch 0:03:33 hours
+Loss/total: 8.17901, IoU: 0.03444
+
+[phase_1] Epoch 5: 912 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:25:17 hours,
+time left to finish the epoch 0:02:13 hours
+Loss/total: 8.17706, IoU: 0.03403
+
+[phase_1] Epoch 5: 960 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:26:35 hours,
+time left to finish the epoch 0:00:53 hours
+Loss/total: 8.18004, IoU: 0.03407
+
+[phase_1] Epoch 5: 992 / 992 samples,
+time for last 32 samples: 0:00:53 hours
+time since beginning 0:27:28 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.18008, IoU: 0.03418
+
+[phase_1] Loss collected: Epoch 5, Value: 8.1801, Total Loss history: 5 values
+[phase_1] IoU collected: Epoch 5, Value: 0.0342, Total IoU history: 5 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 5 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0479
+[phase_1]      Current epoch: 5, Total epochs in history: 5
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.1801
+[phase_1]      Current epoch: , Total epochs in history: 5
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/13b2931c0df51b17b247573c3a00dbe83aa1f425870c749f8d4f458395c3cb65?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T063904Z&X-Amz-Expires=86400&X-Amz-Signature=9c9f1a915e47ae80ae8341c32adcbb343286288adfbc98c72215d49b9f476e9a&X-Amz-SignedHeaders=host&partNumber=1&uploadId=Zhf9yS8HXL4N1wS_IzTMZT9BYR0eNGguXY59QalOCXd3Z_yqcD79aUYahqq0DHmGjQobrS5Sf9Gz7IHq2uxpAmkQSXK_RNVHd39KYLa8s5mJeEgaqrbk6kz_1xIKQZDW&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: e359268c-b4fd-41e6-91d5-81ec7281387e)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/13b2931c0df51b17b247573c3a00dbe83aa1f425870c749f8d4f458395c3cb65?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T063904Z&X-Amz-Expires=86400&X-Amz-Signature=9c9f1a915e47ae80ae8341c32adcbb343286288adfbc98c72215d49b9f476e9a&X-Amz-SignedHeaders=host&partNumber=1&uploadId=Zhf9yS8HXL4N1wS_IzTMZT9BYR0eNGguXY59QalOCXd3Z_yqcD79aUYahqq0DHmGjQobrS5Sf9Gz7IHq2uxpAmkQSXK_RNVHd39KYLa8s5mJeEgaqrbk6kz_1xIKQZDW&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0005.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [30:53, 585kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0005.pth.tar
+[phase_1] Epoch 6: 64 / 992 samples,
+time for last 64 samples: 0:01:57 hours
+time since beginning 0:01:57 hours,
+time left to finish the epoch 0:28:23 hours
+Loss/total: 8.14851, IoU: 0.05289
+
+[phase_1] Epoch 6: 112 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:03:16 hours,
+time left to finish the epoch 0:25:39 hours
+Loss/total: 8.16331, IoU: 0.04407
+
+[phase_1] Epoch 6: 160 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:04:33 hours,
+time left to finish the epoch 0:23:39 hours
+Loss/total: 8.16469, IoU: 0.04409
+
+[phase_1] Epoch 6: 208 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:05:51 hours,
+time left to finish the epoch 0:22:04 hours
+Loss/total: 8.16877, IoU: 0.04346
+
+[phase_1] Epoch 6: 256 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:07:09 hours,
+time left to finish the epoch 0:20:32 hours
+Loss/total: 8.14614, IoU: 0.04473
+
+[phase_1] Epoch 6: 304 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:08:27 hours,
+time left to finish the epoch 0:19:07 hours
+Loss/total: 8.14016, IoU: 0.04307
+
+[phase_1] Epoch 6: 352 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:09:44 hours,
+time left to finish the epoch 0:17:42 hours
+Loss/total: 8.13080, IoU: 0.04128
+
+[phase_1] Epoch 6: 400 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:11:02 hours,
+time left to finish the epoch 0:16:20 hours
+Loss/total: 8.13199, IoU: 0.04018
+
+[phase_1] Epoch 6: 464 / 992 samples,
+time for last 64 samples: 0:01:43 hours
+time since beginning 0:12:45 hours,
+time left to finish the epoch 0:14:31 hours
+Loss/total: 8.13722, IoU: 0.03953
+
+[phase_1] Epoch 6: 512 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:14:03 hours,
+time left to finish the epoch 0:13:10 hours
+Loss/total: 8.14055, IoU: 0.04077
+
+[phase_1] Epoch 6: 560 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:15:21 hours,
+time left to finish the epoch 0:11:50 hours
+Loss/total: 8.14238, IoU: 0.04097
+
+[phase_1] Epoch 6: 608 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:16:39 hours,
+time left to finish the epoch 0:10:31 hours
+Loss/total: 8.14644, IoU: 0.03958
+
+[phase_1] Epoch 6: 656 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:17:56 hours,
+time left to finish the epoch 0:09:11 hours
+Loss/total: 8.14916, IoU: 0.03948
+
+[phase_1] Epoch 6: 704 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:19:15 hours,
+time left to finish the epoch 0:07:52 hours
+Loss/total: 8.15272, IoU: 0.04030
+
+[phase_1] Epoch 6: 752 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:20:34 hours,
+time left to finish the epoch 0:06:34 hours
+Loss/total: 8.15183, IoU: 0.04056
+
+[phase_1] Epoch 6: 800 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:21:52 hours,
+time left to finish the epoch 0:05:15 hours
+Loss/total: 8.15026, IoU: 0.04091
+
+[phase_1] Epoch 6: 864 / 992 samples,
+time for last 64 samples: 0:01:45 hours
+time since beginning 0:23:38 hours,
+time left to finish the epoch 0:03:30 hours
+Loss/total: 8.15156, IoU: 0.04228
+
+[phase_1] Epoch 6: 912 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:24:56 hours,
+time left to finish the epoch 0:02:11 hours
+Loss/total: 8.14881, IoU: 0.04098
+
+[phase_1] Epoch 6: 960 / 992 samples,
+time for last 48 samples: 0:01:17 hours
+time since beginning 0:26:13 hours,
+time left to finish the epoch 0:00:52 hours
+Loss/total: 8.14449, IoU: 0.04158
+
+[phase_1] Epoch 6: 992 / 992 samples,
+time for last 32 samples: 0:00:51 hours
+time since beginning 0:27:05 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.14463, IoU: 0.04252
+
+[phase_1] Loss collected: Epoch 6, Value: 8.1446, Total Loss history: 6 values
+[phase_1] IoU collected: Epoch 6, Value: 0.0425, Total IoU history: 6 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 6 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0479
+[phase_1]      Current epoch: 6, Total epochs in history: 6
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.1446
+[phase_1]      Current epoch: , Total epochs in history: 6
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/110c03baeee3bf810416551cc4e9fe679f5e367569ee5680ae581604d64af57d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T073718Z&X-Amz-Expires=86400&X-Amz-Signature=d297d10db0303a8a5cc251b82fcdd5f32b1bb818d97c1236583f601a8d72df8c&X-Amz-SignedHeaders=host&partNumber=1&uploadId=UAT5Ebgfg9N8Qr2OVfjG8HeV2opGaWclIGBvhM_vlrpb4scr87PQ5iTAuMzGx51iQPNQQpGxvJqR5cE2Oz70QwyT8vx1l2pPXyr59Uvnp.V0Ryn9JCjxYkNHRluVAe32&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 87edd488-4e07-46c9-a70f-57f416c4a819)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/110c03baeee3bf810416551cc4e9fe679f5e367569ee5680ae581604d64af57d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T073718Z&X-Amz-Expires=86400&X-Amz-Signature=d297d10db0303a8a5cc251b82fcdd5f32b1bb818d97c1236583f601a8d72df8c&X-Amz-SignedHeaders=host&partNumber=1&uploadId=UAT5Ebgfg9N8Qr2OVfjG8HeV2opGaWclIGBvhM_vlrpb4scr87PQ5iTAuMzGx51iQPNQQpGxvJqR5cE2Oz70QwyT8vx1l2pPXyr59Uvnp.V0Ryn9JCjxYkNHRluVAe32&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0006.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [30:58, 584kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0006.pth.tar
+[phase_1] Epoch 7: 64 / 992 samples,
+time for last 64 samples: 0:02:02 hours
+time since beginning 0:02:02 hours,
+time left to finish the epoch 0:29:34 hours
+Loss/total: 8.12239, IoU: 0.05446
+
+[phase_1] Epoch 7: 112 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:03:21 hours,
+time left to finish the epoch 0:26:18 hours
+Loss/total: 8.11817, IoU: 0.05822
+
+[phase_1] Epoch 7: 160 / 992 samples,
+time for last 48 samples: 0:01:18 hours
+time since beginning 0:04:39 hours,
+time left to finish the epoch 0:24:12 hours
+Loss/total: 8.12015, IoU: 0.05369
+
+[phase_1] Epoch 7: 208 / 992 samples,
+time for last 48 samples: 0:01:20 hours
+time since beginning 0:05:59 hours,
+time left to finish the epoch 0:22:35 hours
+Loss/total: 8.11730, IoU: 0.06119
+
+[phase_1] Epoch 7: 256 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:07:18 hours,
+time left to finish the epoch 0:21:01 hours
+Loss/total: 8.11022, IoU: 0.05830
+
+[phase_1] Epoch 7: 304 / 992 samples,
+time for last 48 samples: 0:01:20 hours
+time since beginning 0:08:39 hours,
+time left to finish the epoch 0:19:34 hours
+Loss/total: 8.10142, IoU: 0.06173
+
+[phase_1] Epoch 7: 352 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:10:01 hours,
+time left to finish the epoch 0:18:12 hours
+Loss/total: 8.09884, IoU: 0.05824
+
+[phase_1] Epoch 7: 400 / 992 samples,
+time for last 48 samples: 0:01:19 hours
+time since beginning 0:11:19 hours,
+time left to finish the epoch 0:16:45 hours
+Loss/total: 8.10253, IoU: 0.05672
+
+[phase_1] Epoch 7: 464 / 992 samples,
+time for last 64 samples: 0:01:45 hours
+time since beginning 0:13:04 hours,
+time left to finish the epoch 0:14:52 hours
+Loss/total: 8.09856, IoU: 0.05610
+
+[phase_1] Epoch 7: 512 / 992 samples,
+time for last 48 samples: 0:01:30 hours
+time since beginning 0:14:33 hours,
+time left to finish the epoch 0:13:39 hours
+Loss/total: 8.10235, IoU: 0.05391
+
+[phase_1] Epoch 7: 560 / 992 samples,
+time for last 48 samples: 0:01:27 hours
+time since beginning 0:16:01 hours,
+time left to finish the epoch 0:12:21 hours
+Loss/total: 8.10280, IoU: 0.05685
+
+[phase_1] Epoch 7: 608 / 992 samples,
+time for last 48 samples: 0:02:02 hours
+time since beginning 0:18:03 hours,
+time left to finish the epoch 0:11:24 hours
+Loss/total: 8.10910, IoU: 0.05853
+
+[phase_1] Epoch 7: 656 / 992 samples,
+time for last 48 samples: 0:01:36 hours
+time since beginning 0:19:39 hours,
+time left to finish the epoch 0:10:04 hours
+Loss/total: 8.11448, IoU: 0.05911
+
+[phase_1] Epoch 7: 704 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:21:04 hours,
+time left to finish the epoch 0:08:37 hours
+Loss/total: 8.11523, IoU: 0.05727
+
+[phase_1] Epoch 7: 752 / 992 samples,
+time for last 48 samples: 0:01:23 hours
+time since beginning 0:22:27 hours,
+time left to finish the epoch 0:07:10 hours
+Loss/total: 8.11359, IoU: 0.05572
+
+[phase_1] Epoch 7: 800 / 992 samples,
+time for last 48 samples: 0:01:23 hours
+time since beginning 0:23:50 hours,
+time left to finish the epoch 0:05:43 hours
+Loss/total: 8.10819, IoU: 0.05615
+
+[phase_1] Epoch 7: 864 / 992 samples,
+time for last 64 samples: 0:01:48 hours
+time since beginning 0:25:38 hours,
+time left to finish the epoch 0:03:48 hours
+Loss/total: 8.10960, IoU: 0.05736
+
+[phase_1] Epoch 7: 912 / 992 samples,
+time for last 48 samples: 0:01:42 hours
+time since beginning 0:27:20 hours,
+time left to finish the epoch 0:02:24 hours
+Loss/total: 8.11372, IoU: 0.05767
+
+[phase_1] Epoch 7: 960 / 992 samples,
+time for last 48 samples: 0:01:29 hours
+time since beginning 0:28:49 hours,
+time left to finish the epoch 0:00:58 hours
+Loss/total: 8.11424, IoU: 0.05841
+
+[phase_1] Epoch 7: 992 / 992 samples,
+time for last 32 samples: 0:00:57 hours
+time since beginning 0:29:46 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.11586, IoU: 0.05945
+
+[phase_1] Loss collected: Epoch 7, Value: 8.1159, Total Loss history: 7 values
+[phase_1] IoU collected: Epoch 7, Value: 0.0594, Total IoU history: 7 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 7 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0594
+[phase_1]      Current epoch: 7, Total epochs in history: 7
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.1159
+[phase_1]      Current epoch: , Total epochs in history: 7
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/155cb47e96af5ee77d68ef5ed47b449c09336107326788f294ac883115fc22e2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T083840Z&X-Amz-Expires=86400&X-Amz-Signature=6a9d5a5470d69fc6e04c7dfd6812368b3442a3cbe2ccd1167522a133233002b2&X-Amz-SignedHeaders=host&partNumber=1&uploadId=7akFXudlRin6FtqCRwHVXWnnDgkZLkzXwHqM8EH3Bi5al0RPeVkcKj03yoZUTRNzjk2myhyK1vrxM864sZUpv0qsXMSZ8VmIvBgrOxi6zFLKuLPAqt3I97ilgwQPsIUI&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: ea5caa5a-3e1e-4992-9adf-e181cd7480fc)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/155cb47e96af5ee77d68ef5ed47b449c09336107326788f294ac883115fc22e2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T083840Z&X-Amz-Expires=86400&X-Amz-Signature=6a9d5a5470d69fc6e04c7dfd6812368b3442a3cbe2ccd1167522a133233002b2&X-Amz-SignedHeaders=host&partNumber=1&uploadId=7akFXudlRin6FtqCRwHVXWnnDgkZLkzXwHqM8EH3Bi5al0RPeVkcKj03yoZUTRNzjk2myhyK1vrxM864sZUpv0qsXMSZ8VmIvBgrOxi6zFLKuLPAqt3I97ilgwQPsIUI&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0007.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:14, 579kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0007.pth.tar
+[phase_1] Epoch 8: 64 / 992 samples,
+time for last 64 samples: 0:02:10 hours
+time since beginning 0:02:10 hours,
+time left to finish the epoch 0:31:22 hours
+Loss/total: 8.05528, IoU: 0.04596
+
+[phase_1] Epoch 8: 112 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:03:35 hours,
+time left to finish the epoch 0:28:13 hours
+Loss/total: 8.07368, IoU: 0.04942
+
+[phase_1] Epoch 8: 160 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:05:01 hours,
+time left to finish the epoch 0:26:04 hours
+Loss/total: 8.07790, IoU: 0.04983
+
+[phase_1] Epoch 8: 208 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:06:26 hours,
+time left to finish the epoch 0:24:15 hours
+Loss/total: 8.08336, IoU: 0.05423
+
+[phase_1] Epoch 8: 256 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:07:52 hours,
+time left to finish the epoch 0:22:36 hours
+Loss/total: 8.09326, IoU: 0.06672
+
+[phase_1] Epoch 8: 304 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:09:18 hours,
+time left to finish the epoch 0:21:02 hours
+Loss/total: 8.09307, IoU: 0.06179
+
+[phase_1] Epoch 8: 352 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:10:44 hours,
+time left to finish the epoch 0:19:30 hours
+Loss/total: 8.09278, IoU: 0.05963
+
+[phase_1] Epoch 8: 400 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:12:10 hours,
+time left to finish the epoch 0:18:00 hours
+Loss/total: 8.09347, IoU: 0.06297
+
+[phase_1] Epoch 8: 464 / 992 samples,
+time for last 64 samples: 0:01:56 hours
+time since beginning 0:14:05 hours,
+time left to finish the epoch 0:16:02 hours
+Loss/total: 8.09841, IoU: 0.06973
+
+[phase_1] Epoch 8: 512 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:15:31 hours,
+time left to finish the epoch 0:14:33 hours
+Loss/total: 8.09603, IoU: 0.06987
+
+[phase_1] Epoch 8: 560 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:16:57 hours,
+time left to finish the epoch 0:13:04 hours
+Loss/total: 8.09332, IoU: 0.06850
+
+[phase_1] Epoch 8: 608 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:18:22 hours,
+time left to finish the epoch 0:11:36 hours
+Loss/total: 8.08937, IoU: 0.06515
+
+[phase_1] Epoch 8: 656 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:19:48 hours,
+time left to finish the epoch 0:10:08 hours
+Loss/total: 8.08773, IoU: 0.06302
+
+[phase_1] Epoch 8: 704 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:21:13 hours,
+time left to finish the epoch 0:08:41 hours
+Loss/total: 8.08424, IoU: 0.06229
+
+[phase_1] Epoch 8: 752 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:22:38 hours,
+time left to finish the epoch 0:07:14 hours
+Loss/total: 8.08527, IoU: 0.06452
+
+[phase_1] Epoch 8: 800 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:24:04 hours,
+time left to finish the epoch 0:05:47 hours
+Loss/total: 8.08372, IoU: 0.06556
+
+[phase_1] Epoch 8: 864 / 992 samples,
+time for last 64 samples: 0:01:53 hours
+time since beginning 0:25:57 hours,
+time left to finish the epoch 0:03:51 hours
+Loss/total: 8.08029, IoU: 0.06424
+
+[phase_1] Epoch 8: 912 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:27:23 hours,
+time left to finish the epoch 0:02:24 hours
+Loss/total: 8.07623, IoU: 0.06668
+
+[phase_1] Epoch 8: 960 / 992 samples,
+time for last 48 samples: 0:01:26 hours
+time since beginning 0:28:48 hours,
+time left to finish the epoch 0:00:58 hours
+Loss/total: 8.07500, IoU: 0.06599
+
+[phase_1] Epoch 8: 992 / 992 samples,
+time for last 32 samples: 0:00:57 hours
+time since beginning 0:29:45 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.07525, IoU: 0.06536
+
+[phase_1] Loss collected: Epoch 8, Value: 8.0753, Total Loss history: 8 values
+[phase_1] IoU collected: Epoch 8, Value: 0.0654, Total IoU history: 8 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 8 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0654
+[phase_1]      Current epoch: 8, Total epochs in history: 8
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.0753
+[phase_1]      Current epoch: , Total epochs in history: 8
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/92b76773c15e93415eecf31268f0b6b45bdd20e386562d2e5f2565c56c0b608d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T094005Z&X-Amz-Expires=86400&X-Amz-Signature=c7df2e06e5b64f15264b3fd4fd964f99b67e9a64767c6416c9741d1637b6f0b1&X-Amz-SignedHeaders=host&partNumber=1&uploadId=NTW4gtZ0Zr_fUq9aF0mV6id417k7GYzBLseNgTDmKeXbaEIosxxF3V1aXwk1YlJS86t2rR4yCoBF575r9grcpIpvnsIcytvRL9Awpnql1Vm56BjZHSBpoBHB67GMMKq8&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: b4f846d5-0c90-40db-9d26-00af3098e05d)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/92b76773c15e93415eecf31268f0b6b45bdd20e386562d2e5f2565c56c0b608d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T094005Z&X-Amz-Expires=86400&X-Amz-Signature=c7df2e06e5b64f15264b3fd4fd964f99b67e9a64767c6416c9741d1637b6f0b1&X-Amz-SignedHeaders=host&partNumber=1&uploadId=NTW4gtZ0Zr_fUq9aF0mV6id417k7GYzBLseNgTDmKeXbaEIosxxF3V1aXwk1YlJS86t2rR4yCoBF575r9grcpIpvnsIcytvRL9Awpnql1Vm56BjZHSBpoBHB67GMMKq8&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0008.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [32:20, 559kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0008.pth.tar
+[phase_1] Epoch 9: 64 / 992 samples,
+time for last 64 samples: 0:02:14 hours
+time since beginning 0:02:14 hours,
+time left to finish the epoch 0:32:28 hours
+Loss/total: 8.02300, IoU: 0.06901
+
+[phase_1] Epoch 9: 112 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:03:39 hours,
+time left to finish the epoch 0:28:42 hours
+Loss/total: 8.05775, IoU: 0.07631
+
+[phase_1] Epoch 9: 160 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:05:03 hours,
+time left to finish the epoch 0:26:16 hours
+Loss/total: 8.04126, IoU: 0.07963
+
+[phase_1] Epoch 9: 208 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:06:28 hours,
+time left to finish the epoch 0:24:23 hours
+Loss/total: 8.03297, IoU: 0.07712
+
+[phase_1] Epoch 9: 256 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:07:52 hours,
+time left to finish the epoch 0:22:37 hours
+Loss/total: 8.03110, IoU: 0.07257
+
+[phase_1] Epoch 9: 304 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:09:17 hours,
+time left to finish the epoch 0:21:00 hours
+Loss/total: 8.04094, IoU: 0.07445
+
+[phase_1] Epoch 9: 352 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:10:41 hours,
+time left to finish the epoch 0:19:25 hours
+Loss/total: 8.04489, IoU: 0.07298
+
+[phase_1] Epoch 9: 400 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:12:06 hours,
+time left to finish the epoch 0:17:54 hours
+Loss/total: 8.04203, IoU: 0.07070
+
+[phase_1] Epoch 9: 464 / 992 samples,
+time for last 64 samples: 0:01:52 hours
+time since beginning 0:13:57 hours,
+time left to finish the epoch 0:15:53 hours
+Loss/total: 8.04727, IoU: 0.07319
+
+[phase_1] Epoch 9: 512 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:15:22 hours,
+time left to finish the epoch 0:14:24 hours
+Loss/total: 8.03896, IoU: 0.07203
+
+[phase_1] Epoch 9: 560 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:16:46 hours,
+time left to finish the epoch 0:12:56 hours
+Loss/total: 8.03883, IoU: 0.07230
+
+[phase_1] Epoch 9: 608 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:18:10 hours,
+time left to finish the epoch 0:11:29 hours
+Loss/total: 8.03660, IoU: 0.07287
+
+[phase_1] Epoch 9: 656 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:19:35 hours,
+time left to finish the epoch 0:10:02 hours
+Loss/total: 8.03221, IoU: 0.07324
+
+[phase_1] Epoch 9: 704 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:20:59 hours,
+time left to finish the epoch 0:08:35 hours
+Loss/total: 8.02781, IoU: 0.07103
+
+[phase_1] Epoch 9: 752 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:22:24 hours,
+time left to finish the epoch 0:07:09 hours
+Loss/total: 8.02814, IoU: 0.07054
+
+[phase_1] Epoch 9: 800 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:23:48 hours,
+time left to finish the epoch 0:05:43 hours
+Loss/total: 8.02743, IoU: 0.07136
+
+[phase_1] Epoch 9: 864 / 992 samples,
+time for last 64 samples: 0:01:54 hours
+time since beginning 0:25:42 hours,
+time left to finish the epoch 0:03:48 hours
+Loss/total: 8.03543, IoU: 0.07312
+
+[phase_1] Epoch 9: 912 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:27:07 hours,
+time left to finish the epoch 0:02:23 hours
+Loss/total: 8.03521, IoU: 0.07356
+
+[phase_1] Epoch 9: 960 / 992 samples,
+time for last 48 samples: 0:01:24 hours
+time since beginning 0:28:31 hours,
+time left to finish the epoch 0:00:57 hours
+Loss/total: 8.03294, IoU: 0.07381
+
+[phase_1] Epoch 9: 992 / 992 samples,
+time for last 32 samples: 0:00:56 hours
+time since beginning 0:29:27 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.03005, IoU: 0.07313
+
+[phase_1] Loss collected: Epoch 9, Value: 8.0301, Total Loss history: 9 values
+[phase_1] IoU collected: Epoch 9, Value: 0.0731, Total IoU history: 9 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 9 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0731
+[phase_1]      Current epoch: 9, Total epochs in history: 9
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.0301
+[phase_1]      Current epoch: , Total epochs in history: 9
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/426e813cdbe31c6a0ce519be2db5be6bed90f50919d5842c086a39ec0fb52d4e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T104212Z&X-Amz-Expires=86400&X-Amz-Signature=37fdf7ecd37872f76d9e3f545dd6af0fc4f9907f5886707b22c0b53cc55891ab&X-Amz-SignedHeaders=host&partNumber=1&uploadId=982otYH3Ya38Eh5NIaJABDnGrn0Ebh20OTAGLy46i.r387ykDKJ_rqXnX7kqBMZ66hWFizD6rRYZuW9yYjWppa.dD5fNXhoKV5__v1ue2_WpzbugUomaX3EQbj17.GvZ&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 5f313e5b-eb62-462c-a632-6274c8e89400)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/426e813cdbe31c6a0ce519be2db5be6bed90f50919d5842c086a39ec0fb52d4e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T104212Z&X-Amz-Expires=86400&X-Amz-Signature=37fdf7ecd37872f76d9e3f545dd6af0fc4f9907f5886707b22c0b53cc55891ab&X-Amz-SignedHeaders=host&partNumber=1&uploadId=982otYH3Ya38Eh5NIaJABDnGrn0Ebh20OTAGLy46i.r387ykDKJ_rqXnX7kqBMZ66hWFizD6rRYZuW9yYjWppa.dD5fNXhoKV5__v1ue2_WpzbugUomaX3EQbj17.GvZ&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0009.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:36, 572kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0009.pth.tar
+[phase_1] Epoch 10: 64 / 992 samples,
+time for last 64 samples: 0:02:02 hours
+time since beginning 0:02:02 hours,
+time left to finish the epoch 0:29:28 hours
+Loss/total: 8.07839, IoU: 0.07854
+
+[phase_1] Epoch 10: 112 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:03:23 hours,
+time left to finish the epoch 0:26:39 hours
+Loss/total: 8.05123, IoU: 0.08806
+
+[phase_1] Epoch 10: 160 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:04:45 hours,
+time left to finish the epoch 0:24:42 hours
+Loss/total: 8.01979, IoU: 0.08354
+
+[phase_1] Epoch 10: 208 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:06:06 hours,
+time left to finish the epoch 0:23:01 hours
+Loss/total: 8.00645, IoU: 0.08585
+
+[phase_1] Epoch 10: 256 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:07:28 hours,
+time left to finish the epoch 0:21:27 hours
+Loss/total: 7.98622, IoU: 0.08678
+
+[phase_1] Epoch 10: 304 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:08:49 hours,
+time left to finish the epoch 0:19:58 hours
+Loss/total: 8.00522, IoU: 0.08448
+
+[phase_1] Epoch 10: 352 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:10:10 hours,
+time left to finish the epoch 0:18:30 hours
+Loss/total: 8.01631, IoU: 0.09180
+
+[phase_1] Epoch 10: 400 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:11:32 hours,
+time left to finish the epoch 0:17:04 hours
+Loss/total: 8.01221, IoU: 0.09554
+
+[phase_1] Epoch 10: 464 / 992 samples,
+time for last 64 samples: 0:01:49 hours
+time since beginning 0:13:21 hours,
+time left to finish the epoch 0:15:11 hours
+Loss/total: 8.00997, IoU: 0.09494
+
+[phase_1] Epoch 10: 512 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:14:42 hours,
+time left to finish the epoch 0:13:46 hours
+Loss/total: 8.01587, IoU: 0.09177
+
+[phase_1] Epoch 10: 560 / 992 samples,
+time for last 48 samples: 0:01:23 hours
+time since beginning 0:16:04 hours,
+time left to finish the epoch 0:12:24 hours
+Loss/total: 8.01606, IoU: 0.09236
+
+[phase_1] Epoch 10: 608 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:17:25 hours,
+time left to finish the epoch 0:11:00 hours
+Loss/total: 8.01636, IoU: 0.09604
+
+[phase_1] Epoch 10: 656 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:18:47 hours,
+time left to finish the epoch 0:09:37 hours
+Loss/total: 8.02484, IoU: 0.09411
+
+[phase_1] Epoch 10: 704 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:20:08 hours,
+time left to finish the epoch 0:08:14 hours
+Loss/total: 8.02529, IoU: 0.09413
+
+[phase_1] Epoch 10: 752 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:21:34 hours,
+time left to finish the epoch 0:06:53 hours
+Loss/total: 8.02681, IoU: 0.09412
+
+[phase_1] Epoch 10: 800 / 992 samples,
+time for last 48 samples: 0:01:22 hours
+time since beginning 0:22:56 hours,
+time left to finish the epoch 0:05:30 hours
+Loss/total: 8.02568, IoU: 0.09284
+
+[phase_1] Epoch 10: 864 / 992 samples,
+time for last 64 samples: 0:01:50 hours
+time since beginning 0:24:46 hours,
+time left to finish the epoch 0:03:40 hours
+Loss/total: 8.02720, IoU: 0.09025
+
+[phase_1] Epoch 10: 912 / 992 samples,
+time for last 48 samples: 0:01:21 hours
+time since beginning 0:26:07 hours,
+time left to finish the epoch 0:02:17 hours
+Loss/total: 8.02219, IoU: 0.09027
+
+[phase_1] Epoch 10: 960 / 992 samples,
+time for last 48 samples: 0:01:25 hours
+time since beginning 0:27:32 hours,
+time left to finish the epoch 0:00:55 hours
+Loss/total: 8.01736, IoU: 0.08830
+
+[phase_1] Epoch 10: 992 / 992 samples,
+time for last 32 samples: 0:01:10 hours
+time since beginning 0:28:42 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.01619, IoU: 0.08926
+
+[phase_1] Loss collected: Epoch 10, Value: 8.0162, Total Loss history: 10 values
+[phase_1] IoU collected: Epoch 10, Value: 0.0893, Total IoU history: 10 values
+[phase_1] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\phase_1_iou.png (showing 10 epochs)
+[phase_1]      IoU values range: 0.0336 to 0.0893
+[phase_1]      Current epoch: 10, Total epochs in history: 10
+[phase_1] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_1\phase_1_loss.png (showing  epochs)
+[phase_1]      Loss values range: 8.2917 to 8.0162
+[phase_1]      Current epoch: , Total epochs in history: 10
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/1ca637d56150bde70303613a776eb366c084fc664aa9ce38d61aa4a3ecd220c0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T114257Z&X-Amz-Expires=86400&X-Amz-Signature=f4a0cec8f6a17da879f398daada7294b023cfce65c9040b39de8de06fd84b89f&X-Amz-SignedHeaders=host&partNumber=1&uploadId=8QVw.OGe2jm_AevsdVslSRk.eTO59PJsZ20Akjj5hVsxdwtSBRv72OgG3mCp6_QR_pu1vISpNNKzpvRsZwge.6irUu2JM45MpJ07sDW.QurbhwY_N7LAHDwOG7XUUQbA&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: df19802b-4250-4615-aae9-a08e30dd3be3)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/1ca637d56150bde70303613a776eb366c084fc664aa9ce38d61aa4a3ecd220c0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T114257Z&X-Amz-Expires=86400&X-Amz-Signature=f4a0cec8f6a17da879f398daada7294b023cfce65c9040b39de8de06fd84b89f&X-Amz-SignedHeaders=host&partNumber=1&uploadId=8QVw.OGe2jm_AevsdVslSRk.eTO59PJsZ20Akjj5hVsxdwtSBRv72OgG3mCp6_QR_pu1vISpNNKzpvRsZwge.6irUu2JM45MpJ07sDW.QurbhwY_N7LAHDwOG7XUUQbA&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+
+SEQTRACK_ep0010.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:53, 567kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_1
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_1\SEQTRACK_ep0010.pth.tar
+Finished training!
+
+python lib/train/run_training.py --script seqtrack --config seqtrack_b256 --save_dir . --use_lmdb 0 --seed 3 --phase phase_2 --repo_id ayamohamed2500/seqtrack-checkpoints --resume checkpoints/phase_2/SEQTRACK_ep0003.pth.tar
+local_rank: -1
+Training on GPU: NVIDIA GeForce RTX 3050 Laptop GPU
+SEED: 3 (our TEAM Number)
+script_name: seqtrack.py  config_name: seqtrack_b256.yaml
+New configuration is shown below.
+MODEL configuration: {'HIDDEN_DIM': 256, 'BINS': 4000, 'FEATURE_TYPE': 'x', 'ENCODER': {'TYPE': 'vit_base_patch16', 'DROP_PATH': 0, 'PRETRAIN_TYPE': 'mae', 'STRIDE': 16, 'USE_CHECKPOINT': False}, 'DECODER': {'NHEADS': 8, 'DROPOUT': 0.1, 'DIM_FEEDFORWARD': 1024, 'DEC_LAYERS': 2, 'PRE_NORM': False}}
+
+
+TRAIN configuration: {'LR': 0.0001, 'WEIGHT_DECAY': 0.0001, 'EPOCH': 10, 'LR_DROP_EPOCH': 400, 'BATCH_SIZE': 16, 'NUM_WORKER': 6, 'OPTIMIZER': 'ADAMW', 'ENCODER_MULTIPLIER': 0.1, 'FREEZE_ENCODER': False, 'ENCODER_OPEN': [], 'CE_WEIGHT': 1.0, 'PRINT_INTERVAL': 50, 'GRAD_CLIP_NORM': 0.1, 'SCHEDULER': {'TYPE': 'step', 'DECAY_RATE': 0.1}}
+
+
+DATA configuration: {'MEAN': [0.485, 0.456, 0.406], 'STD': [0.229, 0.224, 0.225], 'MAX_SAMPLE_INTERVAL': 400, 'SAMPLER_MODE': 'order', 'LOADER': 'tracking', 'SEQ_FORMAT': 'xywh', 'TRAIN': {'DATASETS_NAME': ['LASOT'], 'DATASETS_RATIO': [1], 'SAMPLE_PER_EPOCH': 1000}, 'SEARCH': {'NUMBER': 1, 'SIZE': 192, 'FACTOR': 3.0, 'CENTER_JITTER': 3.5, 'SCALE_JITTER': 0.5}, 'TEMPLATE': {'NUMBER': 2, 'SIZE': 192, 'FACTOR': 3.0, 'CENTER_JITTER': 0, 'SCALE_JITTER': 0}}
+
+
+TEST configuration: {'TEMPLATE_FACTOR': 4.0, 'TEMPLATE_SIZE': 256, 'SEARCH_FACTOR': 4.0, 'SEARCH_SIZE': 256, 'EPOCH': 500, 'WINDOW': True, 'NUM_TEMPLATES': 2, 'UPDATE_INTERVALS': {'DEFAULT': 9999, 'LASOT': 450, 'LASOT_EXTENSION_SUBSET': 9999, 'GOT10K_TEST': 1, 'TRACKINGNET': 25, 'TNL2K': 25, 'OTB': 9999, 'NFS': 9999, 'UAV': 9999, 'VOT20': 1, 'VOT21': 1, 'VOT22': 1}, 'UPDATE_THRESHOLD': {'DEFAULT': 0.6, 'VOT20': 0.55, 'VOT21': 0.55, 'VOT22': 0.55}}
+
+
+sampler_mode order
+Original number of sequences: 1120
+Number of sequences after filtering for ['book', 'coin']: 32
+Learnable parameters are shown below.
+pos_embed
+encoder.body.pos_embed
+encoder.body.patch_embed.proj.weight
+encoder.body.patch_embed.proj.bias
+encoder.body.blocks.0.norm1.weight
+encoder.body.blocks.0.norm1.bias
+encoder.body.blocks.0.attn.qkv.weight
+encoder.body.blocks.0.attn.qkv.bias
+encoder.body.blocks.0.attn.proj.weight
+encoder.body.blocks.0.attn.proj.bias
+encoder.body.blocks.0.norm2.weight
+encoder.body.blocks.0.norm2.bias
+encoder.body.blocks.0.mlp.fc1.weight
+encoder.body.blocks.0.mlp.fc1.bias
+encoder.body.blocks.0.mlp.fc2.weight
+encoder.body.blocks.0.mlp.fc2.bias
+encoder.body.blocks.1.norm1.weight
+encoder.body.blocks.1.norm1.bias
+encoder.body.blocks.1.attn.qkv.weight
+encoder.body.blocks.1.attn.qkv.bias
+encoder.body.blocks.1.attn.proj.weight
+encoder.body.blocks.1.attn.proj.bias
+encoder.body.blocks.1.norm2.weight
+encoder.body.blocks.1.norm2.bias
+encoder.body.blocks.1.mlp.fc1.weight
+encoder.body.blocks.1.mlp.fc1.bias
+encoder.body.blocks.1.mlp.fc2.weight
+encoder.body.blocks.1.mlp.fc2.bias
+encoder.body.blocks.2.norm1.weight
+encoder.body.blocks.2.norm1.bias
+encoder.body.blocks.2.attn.qkv.weight
+encoder.body.blocks.2.attn.qkv.bias
+encoder.body.blocks.2.attn.proj.weight
+encoder.body.blocks.2.attn.proj.bias
+encoder.body.blocks.2.norm2.weight
+encoder.body.blocks.2.norm2.bias
+encoder.body.blocks.2.mlp.fc1.weight
+encoder.body.blocks.2.mlp.fc1.bias
+encoder.body.blocks.2.mlp.fc2.weight
+encoder.body.blocks.2.mlp.fc2.bias
+encoder.body.blocks.3.norm1.weight
+encoder.body.blocks.3.norm1.bias
+encoder.body.blocks.3.attn.qkv.weight
+encoder.body.blocks.3.attn.qkv.bias
+encoder.body.blocks.3.attn.proj.weight
+encoder.body.blocks.3.attn.proj.bias
+encoder.body.blocks.3.norm2.weight
+encoder.body.blocks.3.norm2.bias
+encoder.body.blocks.3.mlp.fc1.weight
+encoder.body.blocks.3.mlp.fc1.bias
+encoder.body.blocks.3.mlp.fc2.weight
+encoder.body.blocks.3.mlp.fc2.bias
+encoder.body.blocks.4.norm1.weight
+encoder.body.blocks.4.norm1.bias
+encoder.body.blocks.4.attn.qkv.weight
+encoder.body.blocks.4.attn.qkv.bias
+encoder.body.blocks.4.attn.proj.weight
+encoder.body.blocks.4.attn.proj.bias
+encoder.body.blocks.4.norm2.weight
+encoder.body.blocks.4.norm2.bias
+encoder.body.blocks.4.mlp.fc1.weight
+encoder.body.blocks.4.mlp.fc1.bias
+encoder.body.blocks.4.mlp.fc2.weight
+encoder.body.blocks.4.mlp.fc2.bias
+encoder.body.blocks.5.norm1.weight
+encoder.body.blocks.5.norm1.bias
+encoder.body.blocks.5.attn.qkv.weight
+encoder.body.blocks.5.attn.qkv.bias
+encoder.body.blocks.5.attn.proj.weight
+encoder.body.blocks.5.attn.proj.bias
+encoder.body.blocks.5.norm2.weight
+encoder.body.blocks.5.norm2.bias
+encoder.body.blocks.5.mlp.fc1.weight
+encoder.body.blocks.5.mlp.fc1.bias
+encoder.body.blocks.5.mlp.fc2.weight
+encoder.body.blocks.5.mlp.fc2.bias
+encoder.body.blocks.6.norm1.weight
+encoder.body.blocks.6.norm1.bias
+encoder.body.blocks.6.attn.qkv.weight
+encoder.body.blocks.6.attn.qkv.bias
+encoder.body.blocks.6.attn.proj.weight
+encoder.body.blocks.6.attn.proj.bias
+encoder.body.blocks.6.norm2.weight
+encoder.body.blocks.6.norm2.bias
+encoder.body.blocks.6.mlp.fc1.weight
+encoder.body.blocks.6.mlp.fc1.bias
+encoder.body.blocks.6.mlp.fc2.weight
+encoder.body.blocks.6.mlp.fc2.bias
+encoder.body.blocks.7.norm1.weight
+encoder.body.blocks.7.norm1.bias
+encoder.body.blocks.7.attn.qkv.weight
+encoder.body.blocks.7.attn.qkv.bias
+encoder.body.blocks.7.attn.proj.weight
+encoder.body.blocks.7.attn.proj.bias
+encoder.body.blocks.7.norm2.weight
+encoder.body.blocks.7.norm2.bias
+encoder.body.blocks.7.mlp.fc1.weight
+encoder.body.blocks.7.mlp.fc1.bias
+encoder.body.blocks.7.mlp.fc2.weight
+encoder.body.blocks.7.mlp.fc2.bias
+encoder.body.blocks.8.norm1.weight
+encoder.body.blocks.8.norm1.bias
+encoder.body.blocks.8.attn.qkv.weight
+encoder.body.blocks.8.attn.qkv.bias
+encoder.body.blocks.8.attn.proj.weight
+encoder.body.blocks.8.attn.proj.bias
+encoder.body.blocks.8.norm2.weight
+encoder.body.blocks.8.norm2.bias
+encoder.body.blocks.8.mlp.fc1.weight
+encoder.body.blocks.8.mlp.fc1.bias
+encoder.body.blocks.8.mlp.fc2.weight
+encoder.body.blocks.8.mlp.fc2.bias
+encoder.body.blocks.9.norm1.weight
+encoder.body.blocks.9.norm1.bias
+encoder.body.blocks.9.attn.qkv.weight
+encoder.body.blocks.9.attn.qkv.bias
+encoder.body.blocks.9.attn.proj.weight
+encoder.body.blocks.9.attn.proj.bias
+encoder.body.blocks.9.norm2.weight
+encoder.body.blocks.9.norm2.bias
+encoder.body.blocks.9.mlp.fc1.weight
+encoder.body.blocks.9.mlp.fc1.bias
+encoder.body.blocks.9.mlp.fc2.weight
+encoder.body.blocks.9.mlp.fc2.bias
+encoder.body.blocks.10.norm1.weight
+encoder.body.blocks.10.norm1.bias
+encoder.body.blocks.10.attn.qkv.weight
+encoder.body.blocks.10.attn.qkv.bias
+encoder.body.blocks.10.attn.proj.weight
+encoder.body.blocks.10.attn.proj.bias
+encoder.body.blocks.10.norm2.weight
+encoder.body.blocks.10.norm2.bias
+encoder.body.blocks.10.mlp.fc1.weight
+encoder.body.blocks.10.mlp.fc1.bias
+encoder.body.blocks.10.mlp.fc2.weight
+encoder.body.blocks.10.mlp.fc2.bias
+encoder.body.blocks.11.norm1.weight
+encoder.body.blocks.11.norm1.bias
+encoder.body.blocks.11.attn.qkv.weight
+encoder.body.blocks.11.attn.qkv.bias
+encoder.body.blocks.11.attn.proj.weight
+encoder.body.blocks.11.attn.proj.bias
+encoder.body.blocks.11.norm2.weight
+encoder.body.blocks.11.norm2.bias
+encoder.body.blocks.11.mlp.fc1.weight
+encoder.body.blocks.11.mlp.fc1.bias
+encoder.body.blocks.11.mlp.fc2.weight
+encoder.body.blocks.11.mlp.fc2.bias
+encoder.body.norm.weight
+encoder.body.norm.bias
+bottleneck.weight
+bottleneck.bias
+decoder.embedding.word_embeddings.weight
+decoder.embedding.position_embeddings.weight
+decoder.embedding.LayerNorm.weight
+decoder.embedding.LayerNorm.bias
+decoder.body.layers.0.self_attn.in_proj_weight
+decoder.body.layers.0.self_attn.in_proj_bias
+decoder.body.layers.0.self_attn.out_proj.weight
+decoder.body.layers.0.self_attn.out_proj.bias
+decoder.body.layers.0.multihead_attn.in_proj_weight
+decoder.body.layers.0.multihead_attn.in_proj_bias
+decoder.body.layers.0.multihead_attn.out_proj.weight
+decoder.body.layers.0.multihead_attn.out_proj.bias
+decoder.body.layers.0.linear1.weight
+decoder.body.layers.0.linear1.bias
+decoder.body.layers.0.linear2.weight
+decoder.body.layers.0.linear2.bias
+decoder.body.layers.0.norm1.weight
+decoder.body.layers.0.norm1.bias
+decoder.body.layers.0.norm2.weight
+decoder.body.layers.0.norm2.bias
+decoder.body.layers.0.norm3.weight
+decoder.body.layers.0.norm3.bias
+decoder.body.layers.1.self_attn.in_proj_weight
+decoder.body.layers.1.self_attn.in_proj_bias
+decoder.body.layers.1.self_attn.out_proj.weight
+decoder.body.layers.1.self_attn.out_proj.bias
+decoder.body.layers.1.multihead_attn.in_proj_weight
+decoder.body.layers.1.multihead_attn.in_proj_bias
+decoder.body.layers.1.multihead_attn.out_proj.weight
+decoder.body.layers.1.multihead_attn.out_proj.bias
+decoder.body.layers.1.linear1.weight
+decoder.body.layers.1.linear1.bias
+decoder.body.layers.1.linear2.weight
+decoder.body.layers.1.linear2.bias
+decoder.body.layers.1.norm1.weight
+decoder.body.layers.1.norm1.bias
+decoder.body.layers.1.norm2.weight
+decoder.body.layers.1.norm2.bias
+decoder.body.layers.1.norm3.weight
+decoder.body.layers.1.norm3.bias
+decoder.body.norm.weight
+decoder.body.norm.bias
+vocab_embed.layers.0.weight
+vocab_embed.layers.0.bias
+vocab_embed.layers.1.weight
+vocab_embed.layers.1.bias
+vocab_embed.layers.2.weight
+vocab_embed.layers.2.bias
+checkpoints will be saved to D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints
+🔁 Resuming from checkpoint: checkpoints/phase_2/SEQTRACK_ep0003.pth.tar
+✅ Optimizer state restored
+[phase_2] ✅ Resuming from epoch: 3
+[phase_2] ✅ Data sampler epoch set for reproducible data loading
+[phase_2] ✅ IoU values restored: 3 epochs of history
+   IoU values: [0.04789165691633365, 0.043114861728803765, 0.033605294302105904]
+[phase_2] ✅ Loss values restored: 3 epochs of history
+   Loss values: [8.291680165826416, 8.272642043380736, 8.246612023350741]
+✅ Training stats restored
+✅ Random state restored for reproducible training
+✅ Resume checkpoint loaded successfull
+
+[phase_2] Epoch 4: 64 / 992 samples,
+time for last 64 samples: 0:02:23 hours
+time since beginning 0:02:23 hours,
+time left to finish the epoch 0:34:28 hours
+Loss/total: 8.22909, IoU: 0.01624
+
+[phase_2] Epoch 4: 112 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:03:55 hours,
+time left to finish the epoch 0:30:50 hours
+Loss/total: 8.22178, IoU: 0.02199
+
+[phase_2] Epoch 4: 160 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:05:32 hours,
+time left to finish the epoch 0:28:48 hours
+Loss/total: 8.22452, IoU: 0.02355
+
+[phase_2] Epoch 4: 208 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:07:07 hours,
+time left to finish the epoch 0:26:50 hours
+Loss/total: 8.21683, IoU: 0.02981
+
+[phase_2] Epoch 4: 256 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:08:42 hours,
+time left to finish the epoch 0:25:02 hours
+Loss/total: 8.21714, IoU: 0.02989
+
+[phase_2] Epoch 4: 304 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:10:17 hours,
+time left to finish the epoch 0:23:16 hours
+Loss/total: 8.21346, IoU: 0.03020
+
+[phase_2] Epoch 4: 352 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:11:52 hours,
+time left to finish the epoch 0:21:34 hours
+Loss/total: 8.21627, IoU: 0.03103
+
+[phase_2] Epoch 4: 400 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:13:27 hours,
+time left to finish the epoch 0:19:54 hours
+Loss/total: 8.21675, IoU: 0.03186
+
+[phase_2] Epoch 4: 464 / 992 samples,
+time for last 64 samples: 0:02:09 hours
+time since beginning 0:15:35 hours,
+time left to finish the epoch 0:17:44 hours
+Loss/total: 8.21405, IoU: 0.03327
+
+[phase_2] Epoch 4: 512 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:17:12 hours,
+time left to finish the epoch 0:16:07 hours
+Loss/total: 8.21609, IoU: 0.03344
+
+[phase_2] Epoch 4: 560 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:18:48 hours,
+time left to finish the epoch 0:14:31 hours
+Loss/total: 8.21442, IoU: 0.03322
+
+[phase_2] Epoch 4: 608 / 992 samples,
+time for last 48 samples: 0:01:36 hours
+time since beginning 0:20:25 hours,
+time left to finish the epoch 0:12:54 hours
+Loss/total: 8.21553, IoU: 0.03210
+
+[phase_2] Epoch 4: 656 / 992 samples,
+time for last 48 samples: 0:01:36 hours
+time since beginning 0:22:01 hours,
+time left to finish the epoch 0:11:17 hours
+Loss/total: 8.21588, IoU: 0.03175
+
+[phase_2] Epoch 4: 704 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:23:36 hours,
+time left to finish the epoch 0:09:39 hours
+Loss/total: 8.21499, IoU: 0.03422
+
+[phase_2] Epoch 4: 752 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:25:11 hours,
+time left to finish the epoch 0:08:02 hours
+Loss/total: 8.21306, IoU: 0.03436
+
+[phase_2] Epoch 4: 800 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:26:46 hours,
+time left to finish the epoch 0:06:25 hours
+Loss/total: 8.21335, IoU: 0.03451
+
+[phase_2] Epoch 4: 864 / 992 samples,
+time for last 64 samples: 0:02:06 hours
+time since beginning 0:28:52 hours,
+time left to finish the epoch 0:04:17 hours
+Loss/total: 8.21171, IoU: 0.03518
+
+[phase_2] Epoch 4: 912 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:30:26 hours,
+time left to finish the epoch 0:02:40 hours
+Loss/total: 8.21016, IoU: 0.03599
+
+[phase_2] Epoch 4: 960 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:32:00 hours,
+time left to finish the epoch 0:01:04 hours
+Loss/total: 8.20839, IoU: 0.03603
+
+[phase_2] Epoch 4: 992 / 992 samples,
+time for last 32 samples: 0:01:03 hours
+time since beginning 0:33:03 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.20784, IoU: 0.03572
+
+
+[phase_2] Loss collected: Epoch 4, Value: 8.2078, Total Loss history: 4 values
+[phase_2] IoU collected: Epoch 4, Value: 0.0357, Total IoU history: 4 values
+Checkpoint saved locally at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0004.pth.tar
+[phase_2]      IoU values range: 0.0336 to 0.0479
+[phase_2]      Current epoch: 4, Total epochs in history: 4
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.2078
+[phase_2]      Current epoch: , Total epochs in history: 4
+SEQTRACK_ep0004.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09G/1.09G [30:31<00:00, 592kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0004.pth.tar
+[phase_2] Epoch 5: 64 / 992 samples,
+time for last 64 samples: 0:02:22 hours
+time since beginning 0:02:22 hours,
+time left to finish the epoch 0:34:22 hours
+Loss/total: 8.21644, IoU: 0.03674
+
+[phase_2] Epoch 5: 112 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:03:57 hours,
+time left to finish the epoch 0:31:03 hours
+Loss/total: 8.20220, IoU: 0.04600
+
+[phase_2] Epoch 5: 160 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:05:32 hours,
+time left to finish the epoch 0:28:46 hours
+Loss/total: 8.21225, IoU: 0.04239
+
+[phase_2] Epoch 5: 208 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:07:07 hours,
+time left to finish the epoch 0:26:48 hours
+Loss/total: 8.20824, IoU: 0.03909
+
+[phase_2] Epoch 5: 256 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:08:41 hours,
+time left to finish the epoch 0:24:58 hours
+Loss/total: 8.20030, IoU: 0.04140
+
+[phase_2] Epoch 5: 304 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:10:16 hours,
+time left to finish the epoch 0:23:13 hours
+Loss/total: 8.20822, IoU: 0.04067
+
+[phase_2] Epoch 5: 352 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:11:51 hours,
+time left to finish the epoch 0:21:32 hours
+Loss/total: 8.20167, IoU: 0.03818
+
+[phase_2] Epoch 5: 400 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:13:25 hours,
+time left to finish the epoch 0:19:52 hours
+Loss/total: 8.19709, IoU: 0.03690
+
+[phase_2] Epoch 5: 464 / 992 samples,
+time for last 64 samples: 0:02:06 hours
+time since beginning 0:15:32 hours,
+time left to finish the epoch 0:17:40 hours
+Loss/total: 8.19327, IoU: 0.03666
+
+[phase_2] Epoch 5: 512 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:17:06 hours,
+time left to finish the epoch 0:16:02 hours
+Loss/total: 8.19406, IoU: 0.03756
+
+[phase_2] Epoch 5: 560 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:18:41 hours,
+time left to finish the epoch 0:14:25 hours
+Loss/total: 8.19388, IoU: 0.03566
+
+[phase_2] Epoch 5: 608 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:20:16 hours,
+time left to finish the epoch 0:12:48 hours
+Loss/total: 8.19084, IoU: 0.03387
+
+[phase_2] Epoch 5: 656 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:21:50 hours,
+time left to finish the epoch 0:11:11 hours
+Loss/total: 8.19202, IoU: 0.03416
+
+[phase_2] Epoch 5: 704 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:23:25 hours,
+time left to finish the epoch 0:09:35 hours
+Loss/total: 8.18919, IoU: 0.03356
+
+[phase_2] Epoch 5: 752 / 992 samples,
+time for last 48 samples: 0:01:36 hours
+time since beginning 0:25:01 hours,
+time left to finish the epoch 0:07:59 hours
+Loss/total: 8.18549, IoU: 0.03406
+
+[phase_2] Epoch 5: 800 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:26:35 hours,
+time left to finish the epoch 0:06:23 hours
+Loss/total: 8.18278, IoU: 0.03377
+
+[phase_2] Epoch 5: 864 / 992 samples,
+time for last 64 samples: 0:02:07 hours
+time since beginning 0:28:42 hours,
+time left to finish the epoch 0:04:15 hours
+Loss/total: 8.17901, IoU: 0.03444
+
+[phase_2] Epoch 5: 912 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:30:16 hours,
+time left to finish the epoch 0:02:39 hours
+Loss/total: 8.17706, IoU: 0.03403
+
+[phase_2] Epoch 5: 960 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:31:50 hours,
+time left to finish the epoch 0:01:04 hours
+Loss/total: 8.18004, IoU: 0.03407
+
+[phase_2] Epoch 5: 992 / 992 samples,
+time for last 32 samples: 0:01:03 hours
+time since beginning 0:32:52 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.18008, IoU: 0.03418
+
+[phase_2] Loss collected: Epoch 5, Value: 8.1801, Total Loss history: 5 values
+[phase_2] IoU collected: Epoch 5, Value: 0.0342, Total IoU history: 5 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 5 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0479
+[phase_2]      Current epoch: 5, Total epochs in history: 5
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.1801
+[phase_2]      Current epoch: , Total epochs in history: 5
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/13b2931c0df51b17b247573c3a00dbe83aa1f425870c749f8d4f458395c3cb65?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T063904Z&X-Amz-Expires=86400&X-Amz-Signature=9c9f1a915e47ae80ae8341c32adcbb343286288adfbc98c72215d49b9f476e9a&X-Amz-SignedHeaders=host&partNumber=1&uploadId=Zhf9yS8HXL4N1wS_IzTMZT9BYR0eNGguXY59QalOCXd3Z_yqcD79aUYahqq0DHmGjQobrS5Sf9Gz7IHq2uxpAmkQSXK_RNVHd39KYLa8s5mJeEgaqrbk6kz_1xIKQZDW&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: e359268c-b4fd-41e6-91d5-81ec7281387e)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/13b2931c0df51b17b247573c3a00dbe83aa1f425870c749f8d4f458395c3cb65?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T063904Z&X-Amz-Expires=86400&X-Amz-Signature=9c9f1a915e47ae80ae8341c32adcbb343286288adfbc98c72215d49b9f476e9a&X-Amz-SignedHeaders=host&partNumber=1&uploadId=Zhf9yS8HXL4N1wS_IzTMZT9BYR0eNGguXY59QalOCXd3Z_yqcD79aUYahqq0DHmGjQobrS5Sf9Gz7IHq2uxpAmkQSXK_RNVHd39KYLa8s5mJeEgaqrbk6kz_1xIKQZDW&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0005.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [30:53, 585kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0005.pth.tar
+[phase_2] Epoch 6: 64 / 992 samples,
+time for last 64 samples: 0:02:24 hours
+time since beginning 0:02:24 hours,
+time left to finish the epoch 0:34:52 hours
+Loss/total: 8.14851, IoU: 0.05289
+
+[phase_2] Epoch 6: 112 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:04:01 hours,
+time left to finish the epoch 0:31:34 hours
+Loss/total: 8.16331, IoU: 0.04407
+
+[phase_2] Epoch 6: 160 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:05:40 hours,
+time left to finish the epoch 0:29:27 hours
+Loss/total: 8.16469, IoU: 0.04409
+
+[phase_2] Epoch 6: 208 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:07:19 hours,
+time left to finish the epoch 0:27:35 hours
+Loss/total: 8.16877, IoU: 0.04346
+
+[phase_2] Epoch 6: 256 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:08:57 hours,
+time left to finish the epoch 0:25:44 hours
+Loss/total: 8.14614, IoU: 0.04473
+
+[phase_2] Epoch 6: 304 / 992 samples,
+time for last 48 samples: 0:01:36 hours
+time since beginning 0:10:34 hours,
+time left to finish the epoch 0:23:54 hours
+Loss/total: 8.14016, IoU: 0.04307
+
+[phase_2] Epoch 6: 352 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:12:10 hours,
+time left to finish the epoch 0:22:08 hours
+Loss/total: 8.13080, IoU: 0.04128
+
+[phase_2] Epoch 6: 400 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:13:48 hours,
+time left to finish the epoch 0:20:25 hours
+Loss/total: 8.13199, IoU: 0.04018
+
+[phase_2] Epoch 6: 464 / 992 samples,
+time for last 64 samples: 0:02:11 hours
+time since beginning 0:15:59 hours,
+time left to finish the epoch 0:18:11 hours
+Loss/total: 8.13722, IoU: 0.03953
+
+[phase_2] Epoch 6: 512 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:17:37 hours,
+time left to finish the epoch 0:16:31 hours
+Loss/total: 8.14055, IoU: 0.04077
+
+[phase_2] Epoch 6: 560 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:19:15 hours,
+time left to finish the epoch 0:14:51 hours
+Loss/total: 8.14238, IoU: 0.04097
+
+[phase_2] Epoch 6: 608 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:20:53 hours,
+time left to finish the epoch 0:13:11 hours
+Loss/total: 8.14644, IoU: 0.03958
+
+[phase_2] Epoch 6: 656 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:22:31 hours,
+time left to finish the epoch 0:11:32 hours
+Loss/total: 8.14916, IoU: 0.03948
+
+[phase_2] Epoch 6: 704 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:24:10 hours,
+time left to finish the epoch 0:09:53 hours
+Loss/total: 8.15272, IoU: 0.04030
+
+[phase_2] Epoch 6: 752 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:25:49 hours,
+time left to finish the epoch 0:08:14 hours
+Loss/total: 8.15183, IoU: 0.04056
+
+[phase_2] Epoch 6: 800 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:27:27 hours,
+time left to finish the epoch 0:06:35 hours
+Loss/total: 8.15026, IoU: 0.04091
+
+[phase_2] Epoch 6: 864 / 992 samples,
+time for last 64 samples: 0:02:10 hours
+time since beginning 0:29:38 hours,
+time left to finish the epoch 0:04:23 hours
+Loss/total: 8.15156, IoU: 0.04228
+
+[phase_2] Epoch 6: 912 / 992 samples,
+time for last 48 samples: 0:01:38 hours
+time since beginning 0:31:15 hours,
+time left to finish the epoch 0:02:44 hours
+Loss/total: 8.14881, IoU: 0.04098
+
+[phase_2] Epoch 6: 960 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:32:52 hours,
+time left to finish the epoch 0:01:06 hours
+Loss/total: 8.14449, IoU: 0.04158
+
+[phase_2] Epoch 6: 992 / 992 samples,
+time for last 32 samples: 0:01:05 hours
+time since beginning 0:33:57 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.14463, IoU: 0.04252
+
+[phase_2] Loss collected: Epoch 6, Value: 8.1446, Total Loss history: 6 values
+[phase_2] IoU collected: Epoch 6, Value: 0.0425, Total IoU history: 6 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 6 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0479
+[phase_2]      Current epoch: 6, Total epochs in history: 6
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.1446
+[phase_2]      Current epoch: , Total epochs in history: 6
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/110c03baeee3bf810416551cc4e9fe679f5e367569ee5680ae581604d64af57d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T073718Z&X-Amz-Expires=86400&X-Amz-Signature=d297d10db0303a8a5cc251b82fcdd5f32b1bb818d97c1236583f601a8d72df8c&X-Amz-SignedHeaders=host&partNumber=1&uploadId=UAT5Ebgfg9N8Qr2OVfjG8HeV2opGaWclIGBvhM_vlrpb4scr87PQ5iTAuMzGx51iQPNQQpGxvJqR5cE2Oz70QwyT8vx1l2pPXyr59Uvnp.V0Ryn9JCjxYkNHRluVAe32&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 87edd488-4e07-46c9-a70f-57f416c4a819)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/110c03baeee3bf810416551cc4e9fe679f5e367569ee5680ae581604d64af57d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T073718Z&X-Amz-Expires=86400&X-Amz-Signature=d297d10db0303a8a5cc251b82fcdd5f32b1bb818d97c1236583f601a8d72df8c&X-Amz-SignedHeaders=host&partNumber=1&uploadId=UAT5Ebgfg9N8Qr2OVfjG8HeV2opGaWclIGBvhM_vlrpb4scr87PQ5iTAuMzGx51iQPNQQpGxvJqR5cE2Oz70QwyT8vx1l2pPXyr59Uvnp.V0Ryn9JCjxYkNHRluVAe32&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0006.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [30:58, 584kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0006.pth.tar
+[phase_2] Epoch 7: 64 / 992 samples,
+time for last 64 samples: 0:02:26 hours
+time since beginning 0:02:26 hours,
+time left to finish the epoch 0:35:19 hours
+Loss/total: 8.12239, IoU: 0.05446
+
+[phase_2] Epoch 7: 112 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:04:05 hours,
+time left to finish the epoch 0:32:07 hours
+Loss/total: 8.11817, IoU: 0.05822
+
+[phase_2] Epoch 7: 160 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:05:44 hours,
+time left to finish the epoch 0:29:51 hours
+Loss/total: 8.12015, IoU: 0.05369
+
+[phase_2] Epoch 7: 208 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:07:23 hours,
+time left to finish the epoch 0:27:51 hours
+Loss/total: 8.11730, IoU: 0.06119
+
+[phase_2] Epoch 7: 256 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:09:03 hours,
+time left to finish the epoch 0:26:00 hours
+Loss/total: 8.11022, IoU: 0.05830
+
+[phase_2] Epoch 7: 304 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:10:42 hours,
+time left to finish the epoch 0:24:12 hours
+Loss/total: 8.10142, IoU: 0.06173
+
+[phase_2] Epoch 7: 352 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:12:20 hours,
+time left to finish the epoch 0:22:26 hours
+Loss/total: 8.09884, IoU: 0.05824
+
+[phase_2] Epoch 7: 400 / 992 samples,
+time for last 48 samples: 0:01:40 hours
+time since beginning 0:14:00 hours,
+time left to finish the epoch 0:20:43 hours
+Loss/total: 8.10253, IoU: 0.05672
+
+[phase_2] Epoch 7: 464 / 992 samples,
+time for last 64 samples: 0:02:12 hours
+time since beginning 0:16:12 hours,
+time left to finish the epoch 0:18:26 hours
+Loss/total: 8.09856, IoU: 0.05610
+
+[phase_2] Epoch 7: 512 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:17:51 hours,
+time left to finish the epoch 0:16:44 hours
+Loss/total: 8.10235, IoU: 0.05391
+
+[phase_2] Epoch 7: 560 / 992 samples,
+time for last 48 samples: 0:01:40 hours
+time since beginning 0:19:30 hours,
+time left to finish the epoch 0:15:03 hours
+Loss/total: 8.10280, IoU: 0.05685
+
+[phase_2] Epoch 7: 608 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:21:09 hours,
+time left to finish the epoch 0:13:22 hours
+Loss/total: 8.10910, IoU: 0.05853
+
+[phase_2] Epoch 7: 656 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:22:49 hours,
+time left to finish the epoch 0:11:41 hours
+Loss/total: 8.11448, IoU: 0.05911
+
+[phase_2] Epoch 7: 704 / 992 samples,
+time for last 48 samples: 0:01:39 hours
+time since beginning 0:24:28 hours,
+time left to finish the epoch 0:10:00 hours
+Loss/total: 8.11523, IoU: 0.05727
+
+[phase_2] Epoch 7: 752 / 992 samples,
+time for last 48 samples: 0:01:37 hours
+time since beginning 0:26:05 hours,
+time left to finish the epoch 0:08:19 hours
+Loss/total: 8.11359, IoU: 0.05572
+
+[phase_2] Epoch 7: 800 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:27:38 hours,
+time left to finish the epoch 0:06:38 hours
+Loss/total: 8.10819, IoU: 0.05615
+
+[phase_2] Epoch 7: 864 / 992 samples,
+time for last 64 samples: 0:02:04 hours
+time since beginning 0:29:42 hours,
+time left to finish the epoch 0:04:24 hours
+Loss/total: 8.10960, IoU: 0.05736
+
+[phase_2] Epoch 7: 912 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:31:15 hours,
+time left to finish the epoch 0:02:44 hours
+Loss/total: 8.11372, IoU: 0.05767
+
+[phase_2] Epoch 7: 960 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:32:49 hours,
+time left to finish the epoch 0:01:06 hours
+Loss/total: 8.11424, IoU: 0.05841
+
+[phase_2] Epoch 7: 992 / 992 samples,
+time for last 32 samples: 0:01:02 hours
+time since beginning 0:33:51 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.11586, IoU: 0.05945
+
+[phase_2] Loss collected: Epoch 7, Value: 8.1159, Total Loss history: 7 values
+[phase_2] IoU collected: Epoch 7, Value: 0.0594, Total IoU history: 7 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 7 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0594
+[phase_2]      Current epoch: 7, Total epochs in history: 7
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.1159
+[phase_2]      Current epoch: , Total epochs in history: 7
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/155cb47e96af5ee77d68ef5ed47b449c09336107326788f294ac883115fc22e2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T083840Z&X-Amz-Expires=86400&X-Amz-Signature=6a9d5a5470d69fc6e04c7dfd6812368b3442a3cbe2ccd1167522a133233002b2&X-Amz-SignedHeaders=host&partNumber=1&uploadId=7akFXudlRin6FtqCRwHVXWnnDgkZLkzXwHqM8EH3Bi5al0RPeVkcKj03yoZUTRNzjk2myhyK1vrxM864sZUpv0qsXMSZ8VmIvBgrOxi6zFLKuLPAqt3I97ilgwQPsIUI&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: ea5caa5a-3e1e-4992-9adf-e181cd7480fc)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/155cb47e96af5ee77d68ef5ed47b449c09336107326788f294ac883115fc22e2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T083840Z&X-Amz-Expires=86400&X-Amz-Signature=6a9d5a5470d69fc6e04c7dfd6812368b3442a3cbe2ccd1167522a133233002b2&X-Amz-SignedHeaders=host&partNumber=1&uploadId=7akFXudlRin6FtqCRwHVXWnnDgkZLkzXwHqM8EH3Bi5al0RPeVkcKj03yoZUTRNzjk2myhyK1vrxM864sZUpv0qsXMSZ8VmIvBgrOxi6zFLKuLPAqt3I97ilgwQPsIUI&x-id=UploadPart
+SEQTRACK_ep0007.pth.tar:   0%|                                                                                                                                                                         | 0.00/1.09G [00:00<?, ?B/s]'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=9cb4b9f69809e15b3d1e9d8823a5491b166b904e76d966fffa109399bccc5d07&X-Amz-SignedHeaders=host&partNumber=1&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 6dbabd88-dbe2-4543-b276-fbfdfdafc3df)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=9cb4b9f69809e15b3d1e9d8823a5491b166b904e76d966fffa109399bccc5d07&X-Amz-SignedHeaders=host&partNumber=1&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0007.pth.tar:  28%|█████████████████████████████████████████████▎                                                                                                                    | 303M/1.09G [09:24<21:09, 616kB/s]'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: e3303de6-b15a-4163-8fa4-d33bcddcf443)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: a19947e8-0fde-4b79-90f1-18000cbea84c)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 2s [Retry 2/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: 6d4c2a0e-f101-416e-a3fe-09e7013103de)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+Retrying in 4s [Retry 3/5].
+'(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))"), '(Request ID: 1f18108d-6bb1-46ae-829b-3844ed559019)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/01f2fa4b57f2443c515a6802c658a9f4b24d9b700bdb6d9699a1a98cf65ec745?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T050315Z&X-Amz-Expires=86400&X-Amz-Signature=a250d0bb2ddec946c075aff439c68b135950458557182a7c63d611675de740e3&X-Amz-SignedHeaders=host&partNumber=19&uploadId=OUMd1.UB5qbGxIEStylXdHM57US1xrXz3gUDsKuICtCJVX4y9cAMQWLyZYHE4EarL5XRLlRkCMPNtBAQzwAsrmo4m0mA2ZQRcSOqeF7iXB_OebjMPpE7V8BQMpeyJpYg&x-id=UploadPart
+SEQTRACK_ep0007.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:14, 579kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0007.pth.tar
+[phase_2] Epoch 8: 64 / 992 samples,
+time for last 64 samples: 0:02:20 hours
+time since beginning 0:02:20 hours,
+time left to finish the epoch 0:33:49 hours
+Loss/total: 8.05528, IoU: 0.04596
+
+[phase_2] Epoch 8: 112 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:03:54 hours,
+time left to finish the epoch 0:30:36 hours
+Loss/total: 8.07368, IoU: 0.04942
+
+[phase_2] Epoch 8: 160 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:05:27 hours,
+time left to finish the epoch 0:28:21 hours
+Loss/total: 8.07790, IoU: 0.04983
+
+[phase_2] Epoch 8: 208 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:07:01 hours,
+time left to finish the epoch 0:26:26 hours
+Loss/total: 8.08336, IoU: 0.05423
+
+[phase_2] Epoch 8: 256 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:08:34 hours,
+time left to finish the epoch 0:24:39 hours
+Loss/total: 8.09326, IoU: 0.06672
+
+[phase_2] Epoch 8: 304 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:10:08 hours,
+time left to finish the epoch 0:22:56 hours
+Loss/total: 8.09307, IoU: 0.06179
+
+[phase_2] Epoch 8: 352 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:11:42 hours,
+time left to finish the epoch 0:21:16 hours
+Loss/total: 8.09278, IoU: 0.05963
+
+[phase_2] Epoch 8: 400 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:13:15 hours,
+time left to finish the epoch 0:19:37 hours
+Loss/total: 8.09347, IoU: 0.06297
+
+[phase_2] Epoch 8: 464 / 992 samples,
+time for last 64 samples: 0:02:05 hours
+time since beginning 0:15:20 hours,
+time left to finish the epoch 0:17:27 hours
+Loss/total: 8.09841, IoU: 0.06973
+
+[phase_2] Epoch 8: 512 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:16:53 hours,
+time left to finish the epoch 0:15:50 hours
+Loss/total: 8.09603, IoU: 0.06987
+
+[phase_2] Epoch 8: 560 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:18:27 hours,
+time left to finish the epoch 0:14:14 hours
+Loss/total: 8.09332, IoU: 0.06850
+
+[phase_2] Epoch 8: 608 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:20:01 hours,
+time left to finish the epoch 0:12:38 hours
+Loss/total: 8.08937, IoU: 0.06515
+
+[phase_2] Epoch 8: 656 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:21:35 hours,
+time left to finish the epoch 0:11:03 hours
+Loss/total: 8.08773, IoU: 0.06302
+
+[phase_2] Epoch 8: 704 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:23:08 hours,
+time left to finish the epoch 0:09:28 hours
+Loss/total: 8.08424, IoU: 0.06229
+
+[phase_2] Epoch 8: 752 / 992 samples,
+time for last 48 samples: 0:01:35 hours
+time since beginning 0:24:43 hours,
+time left to finish the epoch 0:07:53 hours
+Loss/total: 8.08527, IoU: 0.06452
+
+[phase_2] Epoch 8: 800 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:26:17 hours,
+time left to finish the epoch 0:06:19 hours
+Loss/total: 8.08372, IoU: 0.06556
+
+[phase_2] Epoch 8: 864 / 992 samples,
+time for last 64 samples: 0:02:05 hours
+time since beginning 0:28:22 hours,
+time left to finish the epoch 0:04:12 hours
+Loss/total: 8.08029, IoU: 0.06424
+
+[phase_2] Epoch 8: 912 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:29:55 hours,
+time left to finish the epoch 0:02:37 hours
+Loss/total: 8.07623, IoU: 0.06668
+
+[phase_2] Epoch 8: 960 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:31:29 hours,
+time left to finish the epoch 0:01:03 hours
+Loss/total: 8.07500, IoU: 0.06599
+
+[phase_2] Epoch 8: 992 / 992 samples,
+time for last 32 samples: 0:01:02 hours
+time since beginning 0:32:31 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.07525, IoU: 0.06536
+
+[phase_2] Loss collected: Epoch 8, Value: 8.0753, Total Loss history: 8 values
+[phase_2] IoU collected: Epoch 8, Value: 0.0654, Total IoU history: 8 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 8 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0654
+[phase_2]      Current epoch: 8, Total epochs in history: 8
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.0753
+[phase_2]      Current epoch: , Total epochs in history: 8
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/92b76773c15e93415eecf31268f0b6b45bdd20e386562d2e5f2565c56c0b608d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T094005Z&X-Amz-Expires=86400&X-Amz-Signature=c7df2e06e5b64f15264b3fd4fd964f99b67e9a64767c6416c9741d1637b6f0b1&X-Amz-SignedHeaders=host&partNumber=1&uploadId=NTW4gtZ0Zr_fUq9aF0mV6id417k7GYzBLseNgTDmKeXbaEIosxxF3V1aXwk1YlJS86t2rR4yCoBF575r9grcpIpvnsIcytvRL9Awpnql1Vm56BjZHSBpoBHB67GMMKq8&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: b4f846d5-0c90-40db-9d26-00af3098e05d)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/92b76773c15e93415eecf31268f0b6b45bdd20e386562d2e5f2565c56c0b608d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T094005Z&X-Amz-Expires=86400&X-Amz-Signature=c7df2e06e5b64f15264b3fd4fd964f99b67e9a64767c6416c9741d1637b6f0b1&X-Amz-SignedHeaders=host&partNumber=1&uploadId=NTW4gtZ0Zr_fUq9aF0mV6id417k7GYzBLseNgTDmKeXbaEIosxxF3V1aXwk1YlJS86t2rR4yCoBF575r9grcpIpvnsIcytvRL9Awpnql1Vm56BjZHSBpoBHB67GMMKq8&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0008.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [32:20, 559kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0008.pth.tar
+[phase_2] Epoch 9: 64 / 992 samples,
+time for last 64 samples: 0:02:20 hours
+time since beginning 0:02:20 hours,
+time left to finish the epoch 0:33:53 hours
+Loss/total: 8.02300, IoU: 0.06901
+
+[phase_2] Epoch 9: 112 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:03:54 hours,
+time left to finish the epoch 0:30:38 hours
+Loss/total: 8.05775, IoU: 0.07631
+
+[phase_2] Epoch 9: 160 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:05:28 hours,
+time left to finish the epoch 0:28:24 hours
+Loss/total: 8.04126, IoU: 0.07963
+
+[phase_2] Epoch 9: 208 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:07:01 hours,
+time left to finish the epoch 0:26:28 hours
+Loss/total: 8.03297, IoU: 0.07712
+
+[phase_2] Epoch 9: 256 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:08:35 hours,
+time left to finish the epoch 0:24:40 hours
+Loss/total: 8.03110, IoU: 0.07257
+
+[phase_2] Epoch 9: 304 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:10:08 hours,
+time left to finish the epoch 0:22:56 hours
+Loss/total: 8.04094, IoU: 0.07445
+
+[phase_2] Epoch 9: 352 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:11:42 hours,
+time left to finish the epoch 0:21:16 hours
+Loss/total: 8.04489, IoU: 0.07298
+
+[phase_2] Epoch 9: 400 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:13:15 hours,
+time left to finish the epoch 0:19:37 hours
+Loss/total: 8.04203, IoU: 0.07070
+
+[phase_2] Epoch 9: 464 / 992 samples,
+time for last 64 samples: 0:02:05 hours
+time since beginning 0:15:20 hours,
+time left to finish the epoch 0:17:27 hours
+Loss/total: 8.04727, IoU: 0.07319
+
+[phase_2] Epoch 9: 512 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:16:53 hours,
+time left to finish the epoch 0:15:50 hours
+Loss/total: 8.03896, IoU: 0.07203
+
+[phase_2] Epoch 9: 560 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:18:27 hours,
+time left to finish the epoch 0:14:14 hours
+Loss/total: 8.03883, IoU: 0.07230
+
+[phase_2] Epoch 9: 608 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:20:00 hours,
+time left to finish the epoch 0:12:38 hours
+Loss/total: 8.03660, IoU: 0.07287
+
+[phase_2] Epoch 9: 656 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:21:34 hours,
+time left to finish the epoch 0:11:03 hours
+Loss/total: 8.03221, IoU: 0.07324
+
+[phase_2] Epoch 9: 704 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:23:07 hours,
+time left to finish the epoch 0:09:28 hours
+Loss/total: 8.02781, IoU: 0.07103
+
+[phase_2] Epoch 9: 752 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:24:41 hours,
+time left to finish the epoch 0:07:53 hours
+Loss/total: 8.02814, IoU: 0.07054
+
+[phase_2] Epoch 9: 800 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:26:14 hours,
+time left to finish the epoch 0:06:18 hours
+Loss/total: 8.02743, IoU: 0.07136
+
+[phase_2] Epoch 9: 864 / 992 samples,
+time for last 64 samples: 0:02:04 hours
+time since beginning 0:28:19 hours,
+time left to finish the epoch 0:04:12 hours
+Loss/total: 8.03543, IoU: 0.07312
+
+[phase_2] Epoch 9: 912 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:29:52 hours,
+time left to finish the epoch 0:02:37 hours
+Loss/total: 8.03521, IoU: 0.07356
+
+[phase_2] Epoch 9: 960 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:31:25 hours,
+time left to finish the epoch 0:01:03 hours
+Loss/total: 8.03294, IoU: 0.07381
+
+[phase_2] Epoch 9: 992 / 992 samples,
+time for last 32 samples: 0:01:02 hours
+time since beginning 0:32:27 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.03005, IoU: 0.07313
+
+[phase_2] Loss collected: Epoch 9, Value: 8.0301, Total Loss history: 9 values
+[phase_2] IoU collected: Epoch 9, Value: 0.0731, Total IoU history: 9 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 9 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0731
+[phase_2]      Current epoch: 9, Total epochs in history: 9
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.0301
+[phase_2]      Current epoch: , Total epochs in history: 9
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/426e813cdbe31c6a0ce519be2db5be6bed90f50919d5842c086a39ec0fb52d4e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T104212Z&X-Amz-Expires=86400&X-Amz-Signature=37fdf7ecd37872f76d9e3f545dd6af0fc4f9907f5886707b22c0b53cc55891ab&X-Amz-SignedHeaders=host&partNumber=1&uploadId=982otYH3Ya38Eh5NIaJABDnGrn0Ebh20OTAGLy46i.r387ykDKJ_rqXnX7kqBMZ66hWFizD6rRYZuW9yYjWppa.dD5fNXhoKV5__v1ue2_WpzbugUomaX3EQbj17.GvZ&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: 5f313e5b-eb62-462c-a632-6274c8e89400)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/426e813cdbe31c6a0ce519be2db5be6bed90f50919d5842c086a39ec0fb52d4e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T104212Z&X-Amz-Expires=86400&X-Amz-Signature=37fdf7ecd37872f76d9e3f545dd6af0fc4f9907f5886707b22c0b53cc55891ab&X-Amz-SignedHeaders=host&partNumber=1&uploadId=982otYH3Ya38Eh5NIaJABDnGrn0Ebh20OTAGLy46i.r387ykDKJ_rqXnX7kqBMZ66hWFizD6rRYZuW9yYjWppa.dD5fNXhoKV5__v1ue2_WpzbugUomaX3EQbj17.GvZ&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+SEQTRACK_ep0009.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:36, 572kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0009.pth.tar
+[phase_2] Epoch 10: 64 / 992 samples,
+time for last 64 samples: 0:02:24 hours
+time since beginning 0:02:24 hours,
+time left to finish the epoch 0:34:47 hours
+Loss/total: 8.07839, IoU: 0.07854
+
+[phase_2] Epoch 10: 112 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:03:57 hours,
+time left to finish the epoch 0:31:06 hours
+Loss/total: 8.05123, IoU: 0.08806
+
+[phase_2] Epoch 10: 160 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:05:31 hours,
+time left to finish the epoch 0:28:42 hours
+Loss/total: 8.01979, IoU: 0.08354
+
+[phase_2] Epoch 10: 208 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:07:05 hours,
+time left to finish the epoch 0:26:41 hours
+Loss/total: 8.00645, IoU: 0.08585
+
+[phase_2] Epoch 10: 256 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:08:38 hours,
+time left to finish the epoch 0:24:50 hours
+Loss/total: 7.98622, IoU: 0.08678
+
+[phase_2] Epoch 10: 304 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:10:12 hours,
+time left to finish the epoch 0:23:04 hours
+Loss/total: 8.00522, IoU: 0.08448
+
+[phase_2] Epoch 10: 352 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:11:45 hours,
+time left to finish the epoch 0:21:22 hours
+Loss/total: 8.01631, IoU: 0.09180
+
+[phase_2] Epoch 10: 400 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:13:19 hours,
+time left to finish the epoch 0:19:42 hours
+Loss/total: 8.01221, IoU: 0.09554
+
+[phase_2] Epoch 10: 464 / 992 samples,
+time for last 64 samples: 0:02:05 hours
+time since beginning 0:15:23 hours,
+time left to finish the epoch 0:17:31 hours
+Loss/total: 8.00997, IoU: 0.09494
+
+[phase_2] Epoch 10: 512 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:16:57 hours,
+time left to finish the epoch 0:15:54 hours
+Loss/total: 8.01587, IoU: 0.09177
+
+[phase_2] Epoch 10: 560 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:18:31 hours,
+time left to finish the epoch 0:14:17 hours
+Loss/total: 8.01606, IoU: 0.09236
+
+[phase_2] Epoch 10: 608 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:20:05 hours,
+time left to finish the epoch 0:12:41 hours
+Loss/total: 8.01636, IoU: 0.09604
+
+[phase_2] Epoch 10: 656 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:21:38 hours,
+time left to finish the epoch 0:11:05 hours
+Loss/total: 8.02484, IoU: 0.09411
+
+[phase_2] Epoch 10: 704 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:23:12 hours,
+time left to finish the epoch 0:09:29 hours
+Loss/total: 8.02529, IoU: 0.09413
+
+[phase_2] Epoch 10: 752 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:24:45 hours,
+time left to finish the epoch 0:07:54 hours
+Loss/total: 8.02681, IoU: 0.09412
+
+[phase_2] Epoch 10: 800 / 992 samples,
+time for last 48 samples: 0:01:34 hours
+time since beginning 0:26:19 hours,
+time left to finish the epoch 0:06:19 hours
+Loss/total: 8.02568, IoU: 0.09284
+
+[phase_2] Epoch 10: 864 / 992 samples,
+time for last 64 samples: 0:02:04 hours
+time since beginning 0:28:23 hours,
+time left to finish the epoch 0:04:12 hours
+Loss/total: 8.02720, IoU: 0.09025
+
+[phase_2] Epoch 10: 912 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:29:56 hours,
+time left to finish the epoch 0:02:38 hours
+Loss/total: 8.02219, IoU: 0.09027
+
+[phase_2] Epoch 10: 960 / 992 samples,
+time for last 48 samples: 0:01:33 hours
+time since beginning 0:31:30 hours,
+time left to finish the epoch 0:01:03 hours
+Loss/total: 8.01736, IoU: 0.08830
+
+[phase_2] Epoch 10: 992 / 992 samples,
+time for last 32 samples: 0:01:02 hours
+time since beginning 0:32:32 hours,
+time left to finish the epoch 0:00:00 hours
+Loss/total: 8.01619, IoU: 0.08926
+
+[phase_2] Loss collected: Epoch 10, Value: 8.0162, Total Loss history: 10 values
+[phase_2] IoU collected: Epoch 10, Value: 0.0893, Total IoU history: 10 values
+[phase_2] IoU plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\phase_2_iou.png (showing 10 epochs)
+[phase_2]      IoU values range: 0.0336 to 0.0893
+[phase_2]      Current epoch: 10, Total epochs in history: 10
+[phase_2] Loss plot saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\videoX\SeqTrack\checkpoints\phase_2\phase_2_loss.png (showing  epochs)
+[phase_2]      Loss values range: 8.2917 to 8.0162
+[phase_2]      Current epoch: , Total epochs in history: 10
+                                                                                                                                                                                                                                   '(MaxRetryError("HTTPSConnectionPool(host='hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com', port=443): Max retries exceeded with url: /repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/1ca637d56150bde70303613a776eb366c084fc664aa9ce38d61aa4a3ecd220c0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T114257Z&X-Amz-Expires=86400&X-Amz-Signature=f4a0cec8f6a17da879f398daada7294b023cfce65c9040b39de8de06fd84b89f&X-Amz-SignedHeaders=host&partNumber=1&uploadId=8QVw.OGe2jm_AevsdVslSRk.eTO59PJsZ20Akjj5hVsxdwtSBRv72OgG3mCp6_QR_pu1vISpNNKzpvRsZwge.6irUu2JM45MpJ07sDW.QurbhwY_N7LAHDwOG7XUUQbA&x-id=UploadPart (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2427)')))"), '(Request ID: df19802b-4250-4615-aae9-a08e30dd3be3)')' thrown while requesting PUT https://hf-hub-lfs-us-east-1.s3-accelerate.amazonaws.com/repos/d3/e4/d3e408d0261a6a2ce1667d1a7348722d0e5f4e57b5360739295f5cc9fc34d84f/1ca637d56150bde70303613a776eb366c084fc664aa9ce38d61aa4a3ecd220c0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2JU7TKAQLC2QXPN7%2F20251020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251020T114257Z&X-Amz-Expires=86400&X-Amz-Signature=f4a0cec8f6a17da879f398daada7294b023cfce65c9040b39de8de06fd84b89f&X-Amz-SignedHeaders=host&partNumber=1&uploadId=8QVw.OGe2jm_AevsdVslSRk.eTO59PJsZ20Akjj5hVsxdwtSBRv72OgG3mCp6_QR_pu1vISpNNKzpvRsZwge.6irUu2JM45MpJ07sDW.QurbhwY_N7LAHDwOG7XUUQbA&x-id=UploadPart
+Retrying in 1s [Retry 1/5].
+
+SEQTRACK_ep0010.pth.tar: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.09GB [31:53, 567kB/s]
+Uploaded checkpoint to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded IoU plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Uploaded Loss plot to Hugging Face: ayamohamed2500/seqtrack-checkpoints/phase_2
+Phase checkpoint saved at: D:\College\Level 4\Semester 1\Image Processing\Assignments_Solve\VideoX\SeqTrack\checkpoints\phase_2\SEQTRACK_ep0010.pth.tar
+Finished training!
